@@ -71,6 +71,6 @@ Once the IR is provisioned, the **Status** will be `Running` and you can proceed
 
 1. Within the Data Factory Studio, select the **Manage** tab from the leftmost pane. Select **Linked services** on the left pane, and click the **+ New** button.
 
-|![IR Provisioning](../images/module01/create_ls_adls_1.png)|
-|-|
+>|![IR Provisioning](../images/module01/create_ls_adls_1.png)|
+>||
 
