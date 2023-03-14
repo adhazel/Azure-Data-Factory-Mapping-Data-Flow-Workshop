@@ -1,6 +1,6 @@
 # Azure-Data-Factory-Mapping-Data-Flow-Workshop
 
-Use this repository for hands-on training for Azure Data Factory Mapping Data Flows capabilities.
+Use this repository for hands-on training of Azure Data Factory Mapping Data Flows capabilities.
 
 ## What is Azure Data Factory?
 
