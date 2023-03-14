@@ -60,11 +60,11 @@ Once integration runtimes exist, the next step is to create linked services to t
 
    <kbd> <img src="../images/module01/create_ir_5.png" alt="Enter IR Data Flow compute size" /> </kbd>
 
-The IR will be provisioned by Azure. Note that this can take up to 15 minutes.
+   The IR will be provisioned by Azure. Note that this can take up to 15 minutes.
 
    <kbd> <img src="../images/module01/create_ir_6.png" alt="IR Provisioning" /> </kbd>
 
-Once the IR is provisioned, the **Status** will be `Running` and you can proceed to the next section.
+   Once the IR is provisioned, the **Status** will be `Running` and you can proceed to the next section.
 
 ## 2. Create Azure Storage Linked Service
 
