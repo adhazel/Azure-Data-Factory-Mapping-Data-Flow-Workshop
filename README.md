@@ -1,5 +1,7 @@
 # Azure-Data-Factory-Mapping-Data-Flow-Workshop
 
+Use this repository for hands-on training for Azure Data Factory Mapping Data Flows capabilities.
+
 ## What is Azure Data Factory?
 
 Azure Data Factory is Azure's cloud ETL service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
@@ -8,7 +10,7 @@ Note that another product within Azure, Azure Synapse Pipelines, is mostly synon
 
 ## What are Azure Data Factory mapping data flows?
 
-This repository focuses on the data flows feature within Azure Data Factory. Mapping data flows allow data engineers to develop data transformation logic without writing code (visual ETL). The resulting data flows are executed as activities within Azure Data Factory pipelines that use scaled-out Apache Spark clusters. Data flow activities can be operationalized using existing Azure Data Factory scheduling, control, flow, and monitoring capabilities.
+This repository focuses on the mapping data flows feature within Azure Data Factory. Mapping data flows allow data engineers to develop data transformation logic without writing code (visual ETL). The resulting data flows are executed as activities within Azure Data Factory pipelines that use scaled-out Apache Spark clusters. Data flow activities can be operationalized using existing Azure Data Factory scheduling, control, flow, and monitoring capabilities.
 
 Mapping data flows provide an entirely visual experience with no coding required. Your data flows run on ADF-managed execution clusters for scaled-out data processing. Azure Data Factory handles all the code translation, path optimization, and execution of your data flow jobs.
 
