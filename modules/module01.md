@@ -9,7 +9,6 @@ In this workshop, the default Azure Integration Runtime is used, along with Mana
 
 Once integration runtimes exist, the next step is to create linked services to the resources the data factory connects to. Linked services are referenced by datasets and activities.
 
-![Data Factory Entity Relationships](../images/module01/relationship-between-data-factory-entities.png)
    <kbd> <img src="../images/module01/relationship-between-data-factory-entities.png" alt="Data Factory Entity Relationships" /> </kbd>
 
 ## :bookmark_tabs: Table of Contents
@@ -30,7 +29,6 @@ Once integration runtimes exist, the next step is to create linked services to t
 2. Click the **Launch studio** button.
 
    <kbd> <img src="../images/module01/launch_datafactory.png" alt="Launch Data Factory Studio" /> </kbd>
-
 
 3. Within the Data Factory Studio, select the **Manage** tab from the leftmost pane. Select **Integration runtimes** on the left pane, and click the **+ New** button.
 
@@ -57,7 +55,7 @@ Once integration runtimes exist, the next step is to create linked services to t
 6. On the **Virtual network** tab, select **Enable** for **Virtual network configuration** and ensure the **Interactive authoring** box is checked with a **Time to live** of `60 minutes`.
 
    <kbd> <img src="../images/module01/create_ir_4.png" alt="Enter IR Virtual network settings" /> </kbd>
--
+
 6. On the **Data flow runtime** tab, select a **Compute size** of `Medium` and click **Create**.
 
    <kbd> <img src="../images/module01/create_ir_5.png" alt="Enter IR Data Flow compute size" /> </kbd>
