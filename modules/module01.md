@@ -51,7 +51,7 @@ Once integration runtimes exist, the next step is to create linked services to t
     | Region | `Auto Resolve` |
 
    <kbd> <img src="../images/module01/create_ir_3.png" alt="Enter IR Settings" /> </kbd>
--
+
 6. On the **Virtual network** tab, select **Enable** for **Virtual network configuration** and ensure the **Interactive authoring** box is checked with a **Time to live** of `60 minutes`.
 
    <kbd> <img src="../images/module01/create_ir_4.png" alt="Enter IR Virtual network settings" /> </kbd>
