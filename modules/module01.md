@@ -73,3 +73,13 @@ Once the IR is provisioned, the **Status** will be `Running` and you can proceed
 
 >![IR Provisioning](../images/module01/create_ls_adls_1.png)
 
+<a href="../images/module01/create_ls_adls_1.png"
+    style="
+        background-color: white;
+        padding: 6px 12px;
+        border: 1px solid #505050;
+        color: #171717;
+        border-radius: 2px;
+        display: inline-block;
+        ">
+
