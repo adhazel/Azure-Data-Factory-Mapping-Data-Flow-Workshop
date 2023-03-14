@@ -10,6 +10,7 @@ In this workshop, the default Azure Integration Runtime is used, along with Mana
 Once integration runtimes exist, the next step is to create linked services to the resources the data factory connects to. Linked services are referenced by datasets and activities.
 
 ![Data Factory Entity Relationships](../images/module01/relationship-between-data-factory-entities.png)
+   <kbd> <img src="../images/module01/relationship-between-data-factory-entities.png" alt="Data Factory Entity Relationships" /> </kbd>
 
 ## :bookmark_tabs: Table of Contents
 
@@ -24,23 +25,24 @@ Once integration runtimes exist, the next step is to create linked services to t
 
 1. From the resources list in the resource group, find and click the Data factory (V2) resource to open Azure Data Factory.
 
-![Open Data Factory](../images/module01/open_datafactory.png)
+   <kbd> <img src="../images/module01/open_datafactory.png" alt="Open Data Factory Studio" /> </kbd>
 
 2. Click the **Launch studio** button.
 
-![Launch Data Factory Studio](../images/module01/launch_datafactory.png)
+   <kbd> <img src="../images/module01/launch_datafactory.png" alt="Launch Data Factory Studio" /> </kbd>
+
 
 3. Within the Data Factory Studio, select the **Manage** tab from the leftmost pane. Select **Integration runtimes** on the left pane, and click the **+ New** button.
 
-![Open Data Factory](../images/module01/add_integration_runtime.png)
+   <kbd> <img src="../images/module01/add_integration_runtime.png" alt="Open Data Factory" /> </kbd>
 
 4. Click the **Azure, Self-Hosted** option and then click **Continue**.
 
-![Select Azure and Continue](../images/module01/create_ir_1.png)
+   <kbd> <img src="../images/module01/create_ir_1.png" alt="Select Azure and Continue" /> </kbd>
 
 5. Click the **Azure** option and then click **Continue**.
 
-![Select Azure and Continue](../images/module01/create_ir_2.png)
+   <kbd> <img src="../images/module01/create_ir_2.png" alt="Select Azure and Continue" /> </kbd>
 
 6. On the **Settings** tab, enter the following values.
 
@@ -50,16 +52,16 @@ Once integration runtimes exist, the next step is to create linked services to t
     | Description | `An integration runtime with managed virtual network enabled and a 60 minute cluster time to live. Cluster size is set to medium.` |
     | Region | `Auto Resolve` |
 
-|![Enter IR Settings](../images/module01/create_ir_3.png)|
+   <kbd> <img src="../images/module01/create_ir_3.png" alt="Enter IR Settings" /> </kbd>
 -
 6. On the **Virtual network** tab, select **Enable** for **Virtual network configuration** and ensure the **Interactive authoring** box is checked with a **Time to live** of `60 minutes`.
 
-|![Enter IR Virtual network settings](../images/module01/create_ir_4.png)|
+   <kbd> <img src="../images/module01/create_ir_4.png" alt="Enter IR Virtual network settings" /> </kbd>
 -
 6. On the **Data flow runtime** tab, select a **Compute size** of `Medium` and click **Create**.
 
-|![Enter IR Data Flow compute size](../images/module01/create_ir_5.png)|
--
+   <kbd> <img src="../images/module01/create_ir_5.png" alt="Enter IR Data Flow compute size" /> </kbd>
+
 The IR will be provisioned by Azure. Note that this can take up to 15 minutes.
 
    <kbd> <img src="../images/module01/create_ir_6.png" alt="IR Provisioning" /> </kbd>
