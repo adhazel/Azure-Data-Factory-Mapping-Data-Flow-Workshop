@@ -1,0 +1,1 @@
+This is the module to set up the lab environment.
