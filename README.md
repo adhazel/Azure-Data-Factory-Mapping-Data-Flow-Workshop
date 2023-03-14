@@ -32,4 +32,4 @@ This repository specificially focuses on the Mapping Data Flows feature within A
 
 ## :link: Workshop URL
 
-My link here
+[https://github.com/adhazel/Azure-Data-Factory-Mapping-Data-Flow-Workshop](https://github.com/adhazel/Azure-Data-Factory-Mapping-Data-Flow-Workshop)
