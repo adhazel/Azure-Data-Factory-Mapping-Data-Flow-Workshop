@@ -25,7 +25,7 @@ Mapping data flows provide an entirely visual experience with no coding required
 
 ## :books: Learning Modules
 
-1. [Create Link](./modules/module01.md)
+1. [Create Integration Runtimes and Linked Services](./modules/module01.md)
 2. Other modules here
 
 ## :books: Optional Learning Modules
