@@ -62,8 +62,7 @@ Once integration runtimes exist, the next step is to create linked services to t
 -
 The IR will be provisioned by Azure. Note that this can take up to 15 minutes.
 
-| ![IR Provisioning](../images/module01/create_ir_6.png) |
-| - |
+   <kbd> <img src="../images/module01/create_ir_6.png" alt="IR Provisioning" /> </kbd>
 
 Once the IR is provisioned, the **Status** will be `Running` and you can proceed to the next section.
 
@@ -71,6 +70,6 @@ Once the IR is provisioned, the **Status** will be `Running` and you can proceed
 
 1. Within the Data Factory Studio, select the **Manage** tab from the leftmost pane. Select **Linked services** on the left pane, and click the **+ New** button.
 
-   <kbd> <img src="../images/module01/create_ls_adls_1.png" /> </kbd>
+   <kbd> <img src="../images/module01/create_ls_adls_1.png" alt="Linked Services New button" /> </kbd>
 
 
