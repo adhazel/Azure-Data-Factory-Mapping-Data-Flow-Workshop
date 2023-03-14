@@ -50,19 +50,20 @@ Once integration runtimes exist, the next step is to create linked services to t
     | Description | `An integration runtime with managed virtual network enabled and a 60 minute cluster time to live. Cluster size is set to medium.` |
     | Region | `Auto Resolve` |
 
-![Enter IR Settings](../images/module01/create_ir_3.png)
-
+|![Enter IR Settings](../images/module01/create_ir_3.png)|
+-
 6. On the **Virtual network** tab, select **Enable** for **Virtual network configuration** and ensure the **Interactive authoring** box is checked with a **Time to live** of `60 minutes`.
 
-![Enter IR Virtual network settings](../images/module01/create_ir_4.png)
-
+|![Enter IR Virtual network settings](../images/module01/create_ir_4.png)|
+-
 6. On the **Data flow runtime** tab, select a **Compute size** of `Medium` and click **Create**.
 
-![Enter IR Data Flow compute size](../images/module01/create_ir_5.png)
-
+|![Enter IR Data Flow compute size](../images/module01/create_ir_5.png)|
+-
 The IR will be provisioned by Azure. Note that this can take up to 15 minutes.
 
-![IR Provisioning](../images/module01/create_ir_6.png)
+|![IR Provisioning](../images/module01/create_ir_6.png)|
+-
 
 Once the IR is provisioned, the **Status** will be `Running` and you can proceed to the next section.
 
@@ -70,6 +71,6 @@ Once the IR is provisioned, the **Status** will be `Running` and you can proceed
 
 1. Within the Data Factory Studio, select the **Manage** tab from the leftmost pane. Select **Linked services** on the left pane, and click the **+ New** button.
 
-![IR Provisioning](../images/module01/create_ls_adls_1.png)
-
+|![IR Provisioning](../images/module01/create_ls_adls_1.png)|
+-
 
