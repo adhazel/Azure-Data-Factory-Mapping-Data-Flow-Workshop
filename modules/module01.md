@@ -63,7 +63,7 @@ Once integration runtimes exist, the next step is to create linked services to t
 The IR will be provisioned by Azure. Note that this can take up to 15 minutes.
 
 | ![IR Provisioning](../images/module01/create_ir_6.png) |
-
+-
 
 Once the IR is provisioned, the **Status** will be `Running` and you can proceed to the next section.
 
