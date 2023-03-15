@@ -1,6 +1,6 @@
 # Module 01 - Create Integration Runtime
 
-[< Previous Module](../modules/module00.md) - **[Home](../README.md)** - [Next Module >](../modules/module03.md)
+[< Previous Module](../modules/module00.md) - **[Home](../README.md)** - [Next Module >](../modules/module02.md)
 
 ## :loudspeaker: Introduction
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory and Azure Synapse pipelines. For more information about integration runtimes, see [Integration runtime in Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
