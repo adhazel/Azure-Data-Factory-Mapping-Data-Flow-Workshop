@@ -27,7 +27,7 @@ Mapping data flows provide an entirely visual experience with no coding required
 
 1. [Create Integration Runtime](./modules/module01.md)
 2. [Create Linked Services](./modules/module02.md)
-3. [Two Ways to do a Simple Copy](./modules/module03.md)
+3. [Two Ways to do a Basic Copy](./modules/module03.md)
 
 ## :books: Optional Learning Modules
 
