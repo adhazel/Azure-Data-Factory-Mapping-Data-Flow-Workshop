@@ -72,4 +72,16 @@ Once integration runtimes exist, the next step is to create linked services to t
 
    <kbd> <img src="../images/module01/create_ls_adls_1.png" alt="Linked Services New button" /> </kbd>
 
+2. Select **Azure Data Lake Storage Gen 2** and click **Continue**.
 
+   <kbd> <img src="../images/module01/create_ls_adls_2.png" alt="Select ADLS and click Continue" /> </kbd>
+
+3. Enter the following values.
+
+    | Attribute  | Example Value |
+    | --- | --- |
+    | Name | `ls_adls_irvnetmedium` |
+    | Description | `A linked service connecting to the Azure Data Lake Storage Account via the virtual network using a medium cluster size` |
+    | Connect via | `< Your virtual network integration runtime >` |
+
+   <kbd> <img src="../images/module01/create_ir_3.png" alt="Enter IR Settings" /> </kbd>
