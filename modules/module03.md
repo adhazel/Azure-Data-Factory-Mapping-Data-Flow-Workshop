@@ -11,8 +11,6 @@ A basic data movement can be accomplished two ways in Azure Data Factory. This m
 
 ## :bookmark_tabs: Table of Contents
 
-If there are multiple sections to this page, add a Table of Contents with jump links.
-
 | #  | Section |
 | --- | --- |
 | 1 | [Stage data in the data lake](#1stage-data-in-the-data-lake) |
@@ -23,7 +21,7 @@ If there are multiple sections to this page, add a Table of Contents with jump l
 
 ## 1. Stage data in the data lake
 
-The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. Download this file from [../data_to_be_staged/adls\inbound\nyx_taxi_sample\NYCTripSmall.parquet](../data_to_be_staged/adls\inbound\nyx_taxi_sample\NYCTripSmall.parquet) and upload it into the Azure Storage Account lab resource named `dfmdf< Random string for your lab environment resources >adls`.
+The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. Download this file from [../data_to_be_staged/adls/inbound/nyx_taxi_sample/NYCTripSmall.parquet](../data_to_be_staged/adls/inbound/nyx_taxi_sample/NYCTripSmall.parquet) and upload it into the Azure Storage Account lab resource named `dfmdf< Random string for your lab environment resources >adls`.
 
 1. 
 
