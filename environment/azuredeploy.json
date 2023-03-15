@@ -10,7 +10,7 @@
   },
   "variables": {
     "location": "[resourceGroup().location]",
-    "randomString": "4c7e3a", /*"[substring(guid(resourceGroup().id, deployment().name), 0, 6)]",*/
+    "randomString": "[substring(guid(resourceGroup().id, deployment().name), 0, 6)]",
     "roleDefinitionprefix": "[format('/subscriptions/{0}/providers/Microsoft.Authorization/roleDefinitions', subscription().subscriptionId)]",
     "role": {
       "Owner": "[format('{0}/8e3af657-a8ff-443c-a75c-2fe8c4bcb635', variables('roleDefinitionprefix'))]",
