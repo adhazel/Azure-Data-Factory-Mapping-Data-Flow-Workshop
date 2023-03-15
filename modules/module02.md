@@ -49,11 +49,11 @@ This linked service should be used to connect to the Azure Data Lake Storage Acc
 
 4. The linked service is now created but not published. Unpublished changes are indicated by the number on the **Publish all** button. Click **Publish all** to proceed. When the Publish all pane appears, click the **Publish** button at the bottom.
 
-   <kbd> <img src="../images/module01/create_ls_adls_5.png" alt="Publish All" /> </kbd>
-   <kbd> <img src="../images/module01/create_ls_adls_6.png" alt="Publish" /> </kbd>
+   <kbd> <img src="../images/module02/create_ls_adls_5.png" alt="Publish All" /> </kbd>
+   <kbd> <img src="../images/module02/create_ls_adls_6.png" alt="Publish" /> </kbd>
 
    Once the linked service is published, the Publish all button on the top banner will be grey and the ls_adls_irvnetmedium linked service will no longer have a dot next to it. 
-   <kbd> <img src="../images/module01/create_ls_adls_7.png" alt="Its saved now" /> </kbd>
+   <kbd> <img src="../images/module02/create_ls_adls_7.png" alt="Its saved now" /> </kbd>
 
 <div align="right"><a href="#module-02---create-linked-services">↥ back to top</a></div>
 
@@ -78,11 +78,11 @@ This linked service should be used to connect to the Azure Data Lake Storage Acc
     | Storage account name | `dfmdf< Random string for your lab environment resources >adls` |
     | Test connection | `To linked service` |
 
-   <kbd> <img src="../images/module01/create_ls_adls_8.png" alt="Create default adls ir" /> </kbd>
+   <kbd> <img src="../images/module02/create_ls_adls_8.png" alt="Create default adls ir" /> </kbd>
 
 4. The linked service is now created but not published. Unpublished changes are indicated by the number on the **Publish all** button. Click **Publish all** to proceed. When the Publish all pane appears, click the **Publish** button at the bottom.
 
    Once the linked service is published, the Publish all button on the top banner will be grey and the ls_adls_irvnetmedium linked service will no longer have a dot next to it. 
-   <kbd> <img src="../images/module01/create_ls_adls_9.png" alt="Its saved now" /> </kbd>
+   <kbd> <img src="../images/module02/create_ls_adls_9.png" alt="Its saved now" /> </kbd>
 
 <div align="right"><a href="#module-02---create-linked-services">↥ back to top</a></div>
