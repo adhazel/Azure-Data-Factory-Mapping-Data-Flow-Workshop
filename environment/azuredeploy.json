@@ -10,7 +10,7 @@
   },
   "variables": {
     "location": "[resourceGroup().location]",
-    "randomString": "[substring(guid(resourceGroup().id, deployment().name), 0, 6)]",
+    "randomString": "4c7e3a", /*"[substring(guid(resourceGroup().id, deployment().name), 0, 6)]",*/
     "roleDefinitionprefix": "[format('/subscriptions/{0}/providers/Microsoft.Authorization/roleDefinitions', subscription().subscriptionId)]",
     "role": {
       "Owner": "[format('{0}/8e3af657-a8ff-443c-a75c-2fe8c4bcb635', variables('roleDefinitionprefix'))]",
@@ -149,6 +149,7 @@
         "type": "SystemAssigned"
       }
     },
+
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2021-04-01",
@@ -194,14 +195,29 @@
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-08-01-preview",
       "scope": "[format('Microsoft.Storage/storageAccounts/{0}', format('dfmdf{0}synapse', variables('randomString')))]",
-      "name": "[guid(resourceGroup().id, deployment().name)]",
+      "name": "[guid(variables('randomString'), 'role1')]",
       "properties": {
-        "principalId": "[reference(format('dfmdf-{0}-synapse', variables('randomString')), '2021-05-01', 'full').identity.principalId]",
+        "principalId": "[reference(format('dfmdf-{0}-synapse', variables('randomString')), '2018-06-01', 'full').identity.principalId]",
         "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
         "principalType": "ServicePrincipal"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Synapse/workspaces', format('dfmdf-{0}-synapse', variables('randomString')))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', format('dfmdf{0}synapse', variables('randomString')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2020-08-01-preview",
+      "scope": "[format('Microsoft.Storage/storageAccounts/{0}', format('dfmdf{0}adls', variables('randomString')))]",
+      "name": "[guid(variables('randomString'), 'role2')]",
+      "properties": {
+        "principalId": "[reference(format('dfmdf-{0}-adf', variables('randomString')), '2018-06-01', 'full').identity.principalId]",
+        "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
+        "principalType": "ServicePrincipal"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('dfmdf-{0}-adf', variables('randomString')))]",
         "[resourceId('Microsoft.Storage/storageAccounts', format('dfmdf{0}synapse', variables('randomString')))]"
       ]
     },
