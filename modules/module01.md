@@ -1,4 +1,4 @@
-# Module 01 - Create Integration Runtimes and Linked Services
+# Module 01 - Create Integration Runtime
 
 [< Previous Module](../modules/module00.md) - **[Home](../README.md)** - [Next Module >](../modules/module03.md)
 
@@ -7,20 +7,9 @@ The Integration Runtime (IR) is the compute infrastructure used by Azure Data Fa
 
 In this workshop, the default Azure Integration Runtime is used, along with Managed Virtual Network. Azure integration runtime provides a fully managed, serverless compute in Azure. You don't have to worry about infrastructure provision, software installation, patching, or capacity scaling. In addition, you only pay for the duration of the actual utilization. The enablement of Managed Virtual Network allows you to use the power of spark within mapping data flows.
 
-Once integration runtimes exist, the next step is to create linked services to the resources the data factory connects to. Linked services are referenced by datasets and activities.
-
-   <kbd> <img src="../images/module01/relationship-between-data-factory-entities.png" alt="Data Factory Entity Relationships" /> </kbd>
-
-## :bookmark_tabs: Table of Contents
-
-| #  | Section | Role |
-| --- | --- | --- |
-| 1 | [Create an Azure IR with Managed Virtual Network enabled](#1-create-an-azure-ir-with-managed-virtual-network-enabled) | Data Factory Contributor |
-| 2 | [Create Azure Storage Linked Service](#2-create-azure-storage-linked-service) | Data Factory Contributor |
-
 <div align="right"><a href="#module-01---create-integration-runtimes-and-linked-services">↥ back to top</a></div>
 
-## 1. Create an Azure IR with Managed Virtual Network enabled
+## Create an Azure IR with Managed Virtual Network enabled
 
 1. From the resources list in the resource group, find and click the Data factory (V2) resource to open Azure Data Factory.
 
@@ -66,22 +55,8 @@ Once integration runtimes exist, the next step is to create linked services to t
 
    Once the IR is provisioned, the **Status** will be `Running` and you can proceed to the next section.
 
-## 2. Create Azure Storage Linked Service
+## :tada: Summary
 
-1. Within the Data Factory Studio, select the **Manage** tab from the leftmost pane. Select **Linked services** on the left pane, and click the **+ New** button.
+You have now created an integration runtime with managed virtual network enabled, designed to be used with mapping data flow transformations.
 
-   <kbd> <img src="../images/module01/create_ls_adls_1.png" alt="Linked Services New button" /> </kbd>
-
-2. Select **Azure Data Lake Storage Gen 2** and click **Continue**.
-
-   <kbd> <img src="../images/module01/create_ls_adls_2.png" alt="Select ADLS and click Continue" /> </kbd>
-
-3. Enter the following values.
-
-    | Attribute  | Example Value |
-    | --- | --- |
-    | Name | `ls_adls_irvnetmedium` |
-    | Description | `A linked service connecting to the Azure Data Lake Storage Account via the virtual network using a medium cluster size` |
-    | Connect via | `< Your virtual network integration runtime >` |
-
-   <kbd> <img src="../images/module01/create_ir_3.png" alt="Enter IR Settings" /> </kbd>
+[Continue >](../modules/module02.md)
