@@ -86,3 +86,9 @@ This linked service should be used to connect to the Azure Data Lake Storage Acc
    <kbd> <img src="../images/module02/create_ls_adls_9.png" alt="Its saved now" /> </kbd>
 
 <div align="right"><a href="#module-02---create-linked-services">↥ back to top</a></div>
+
+## :tada: Summary
+
+You have now created the necessary linked services to proceed with the lab content..
+
+[Continue >](../modules/module03.md)
