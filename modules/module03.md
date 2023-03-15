@@ -21,9 +21,25 @@ A basic data movement can be accomplished two ways in Azure Data Factory. This m
 
 ## 1. Stage data in the data lake
 
-The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. Download this file from [../data_to_be_staged/adls/inbound/nyx_taxi_sample/NYCTripSmall.parquet](../data_to_be_staged/adls/inbound/nyx_taxi_sample/NYCTripSmall.parquet) and upload it into the Azure Storage Account lab resource named `dfmdf< Random string for your lab environment resources >adls`.
+The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This file needs to be in the Azure Storage Account created for this lab.
 
-1. 
+1. Download this file from [../data_to_be_staged/adls/inbound/nyx_taxi_sample/NYCTripSmall.parquet](../data_to_be_staged/adls/inbound/nyx_taxi_sample/NYCTripSmall.parquet).
+
+2. From the Azure Resource Group overview page, find and click the Azure Storage Account lab resource named `dfmdf< Random string for your lab environment resources >adls` to open the storage account.
+
+   <kbd> <img src="../images/module03/open_storage_account.png" alt="Open ADLS" /> </kbd>
+
+3. Within the Azure Storage Account, open the **Containers** page from within the **Data storage** section of the left pane. Then, click the **+ Container** button and add an `inbound` container.
+
+   <kbd> <img src="../images/module03/create_inbound_container.png" alt="Create inbound Container" /> </kbd>
+
+4. Click the container name to open the container. Then, click **+ Add Directory**. Add a directory Name `create_nyx_taxi_sample_dir' and click **Save** to create the directory.
+
+   <kbd> <img src="../images/module03/create_nyx_taxi_sample_dir.png" alt="Create nyx tax dir" /> </kbd>
+
+5. Click the directory name to open the directoy. Then, click the **Upload** button and drag and drop the `NYCTripSmall.parquet` file you downloaded in step 1 into the **Upload blob** drag and drop area. Finally, click **Upload**.
+
+   <kbd> <img src="../images/module03/uploadNYCTripSmall.png" alt="Upload nyx taxi data" /> </kbd>
 
 <div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
 
