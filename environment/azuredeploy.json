@@ -197,7 +197,7 @@
       "scope": "[format('Microsoft.Storage/storageAccounts/{0}', format('dfmdf{0}synapse', variables('randomString')))]",
       "name": "[guid(variables('randomString'), 'role1')]",
       "properties": {
-        "principalId": "[reference(format('dfmdf-{0}-synapse', variables('randomString')), '2018-06-01', 'full').identity.principalId]",
+        "principalId": "[reference(format('dfmdf-{0}-synapse', variables('randomString')), '2021-05-01', 'full').identity.principalId]",
         "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
         "principalType": "ServicePrincipal"
       },
