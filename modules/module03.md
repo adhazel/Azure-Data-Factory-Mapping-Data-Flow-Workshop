@@ -49,12 +49,64 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/create_publish_directories.png" alt="Create publish directories" /> </kbd>
 
-
-
 <div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
 
 ## 2. Pipeline Copy
-pipeline copy
+
+1. Within the Data Factory Studio, select the **Author** tab from the leftmost pane. Open the **Pipeline Actions** elipsis menu, and click the **New pipeline** menu item.
+
+   <kbd> <img src="../images/module01/create_new_pipeline.png" alt="new pipeline" /> </kbd>
+
+2. In the **Properties** pane of the new pipeline, add a **Name** and **Description**.
+
+    | Attribute  | Example Value |
+    | --- | --- |
+    | Name | `pl_simple_copy` |
+    | Description | `Use the copy activity to copy data from one location to another.` |
+
+2. From the **Activities** pane, under **Move & transform**, click and drag the **Copy data** activity into the pipeline area. Then, on the **Source** tab of the activity properties, click the **+ New** button.
+
+   <kbd> <img src="../images/module01/new_dataset.png" alt="New dataset" /> </kbd>
+
+3. In the **New dataset** pane, find **Azure Data Lake Storage Gen 2** and click the **Continue** button.
+
+   <kbd> <img src="../images/module01/dataset_adls_1.png" alt="New dataset adls 1" /> </kbd>
+
+4. Click the **Binary** option and click the **Continue** button.
+
+5. Enter the properties and click the **OK** button.
+
+    | Attribute  | Value |
+    | --- | --- |
+    | Name | `ds_irazure_adls_binary` |
+    | Linked Service | `ls_adls_irazure` |
+
+6. Click the **Open** button from the **Source** tab of the activity properties.
+
+   <kbd> <img src="../images/module01/open_dataset_adls.png" alt="New dataset adls 2" /> </kbd>
+
+7. On the **Parameters** tab of the new dataset, click the **+ New** button and add three parameters.
+
+    | Name  | Type | Default value |
+    | --- | --- | --- |
+    | `container` | `String` | leave blank |
+    | `directory` | `String` | leave blank |
+    | `filename` | `String` | leave blank |
+
+   <kbd> <img src="../images/module01/new_dataset_params.png" alt="New dataset adls 3" /> </kbd>
+
+8. On the **Connection** tab of the new dataset, for all 3 attributes of the **File path**, roll over the attribute fields and click the **Add dynamic content** link that appears under each field. Then, add the parameters to the appropriate fields, the first field being for the `container` parameter, then `directory`, then `filename`.
+
+   <kbd> <img src="../images/module01/new_dataset_adls_connection.png" alt="New dataset adls 4" /> </kbd>
+   <kbd> <img src="../images/module01/new_dataset_adls_connection2.png" alt="New dataset adls 5" /> </kbd>
+
+9. Click the pl_simple_copy pipeline tab in the working pane. On the Source tab of the Copy data activity, enter the following values. 
+
+    | Attribute  | Value |
+    | --- | --- |
+    | Dataset properties / container | `inbound` |
+ 
+
 
 <div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
 
