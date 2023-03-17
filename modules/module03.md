@@ -229,6 +229,7 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
 17. Set the unmask settings as shown below.
 
+    | Attribute  | Value |
     | --- | --- |
     | Owner | `R` + ` W` + `X` |
     | Group | `R` + ` W` + `X` |
