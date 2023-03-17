@@ -243,6 +243,10 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/df_debug.png" alt="DF Debug" /> </kbd>
 
+20. Click the **Publish all** button, then click the **Publish** button.
+
+   <kbd> <img src="../images/module03/df_publish_all.png" alt="Publish all" /> </kbd>
+
 <div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
 
 ## :tada: Summary
