@@ -243,10 +243,11 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/df_debug.png" alt="DF Debug" /> </kbd>
 
+<div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
 
 ## :tada: Summary
 
-You have now completed this module. 
+You have now completed this module. You have performed a simple copy using both the **Pipelines** and the **Data flows** features. The pipelines copy used the Azure IR compute that does not use spark while the data flows pipeline you created utilized an IR with managed virtual network enabled with a medium sized Apache spark cluster.
 
 [Continue >](../modules/module04.md)
 
