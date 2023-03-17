@@ -70,8 +70,6 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
 3. In the **New dataset** pane, find **Azure Data Lake Storage Gen 2** and click the **Continue** button.
 
-   <kbd> <img src="../images/module03/dataset_adls_1.png" alt="New dataset adls 1" /> </kbd>
-
 4. Click the **Binary** option and click the **Continue** button.
 
 5. Enter the properties and click the **OK** button.
@@ -100,12 +98,40 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
    <kbd> <img src="../images/module03/new_dataset_adls_connection.png" alt="New dataset adls 4" /> </kbd>
    <kbd> <img src="../images/module03/new_dataset_adls_connection2.png" alt="New dataset adls 5" /> </kbd>
 
-9. Click the pl_simple_copy pipeline tab in the working pane. On the Source tab of the Copy data activity, enter the following values. 
+9. Click the `ds_ir_azure_adls_binary` dataset elipsis menu item and select **Clone**.
+
+   <kbd> <img src="../images/module03/clone_adls_dataset.png" alt="Clone dataset" /> </kbd>
+
+10. On the **Properties** pane of the cloned dataset, replace the text "copy1" in the **Name** with `directory`. Then, roll over the file name part of the **File path** and click the gargage bin icon. On the **Parameters** tab, check the filename parameter and click the **Delete** button. 
+
+   <kbd> <img src="../images/module03/clone_adls_dataset2.png" alt="New dataset adls 6" /> </kbd>
+   <kbd> <img src="../images/module03/clone_adls_dataset3.png" alt="New dataset adls 7" /> </kbd>
+
+11. Click the `pl_simple_copy` pipeline tab in the working pane. On the **Source** tab of the **Copy data** activity, enter the following values. 
 
     | Attribute  | Value |
     | --- | --- |
+    | Source dataset | `ds_irazure_adls_binary` |
     | Dataset properties / container | `inbound` |
- 
+    | Dataset properties / directory | `x` (This is a placeholder only; the value will be overwritten due to the **Wildcard file path** option selected in the **File path type** radio option.)|
+    | Dataset properties / filename | `x` (This is a placeholder only; the value will be overwritten due to the **Wildcard file path** option selected in the **File path type** radio option.)|
+    | File path type | `Wildcard file path` |
+    | Wildcard paths / directory | `nyx_taxi_sample` |
+    | Wildcard paths / filename | `*.parquet*` |
+
+   <kbd> <img src="../images/module03/create_new_pipeline_copy_source.png" alt="Create new pipeline copy source" /> </kbd>
+
+12. On the **Sink** tab of the **Copy data** activity, enter the following values. 
+
+    | Attribute  | Value |
+    | --- | --- |
+    | Sink dataset | `ds_irazure_adls_binary_directory` |
+    | Dataset properties / container | `publish` |
+    | Dataset properties / directory | `nyx_taxi_sample_pipeline` |
+
+   <kbd> <img src="../images/module03/create_new_pipeline_copy_sink.png" alt="Create new pipeline copy sink" /> </kbd>
+
+13. Click the **Debug** button and ensure your copy succeeds!
 
 adfadfadfadfadf
 <div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
