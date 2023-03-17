@@ -133,7 +133,12 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
 13. Click the **Debug** button and ensure your copy succeeds!
 
-adfadfadfadfadf
+   <kbd> <img src="../images/module03/pipeline_succeeded.png" alt="Pipeline succeeded" /> </kbd>
+
+14. Click the **Publish all** button, then click the **Publish** button.
+
+   <kbd> <img src="../images/module03/publish_new_pipeline.png" alt="Publish all" /> </kbd>
+
 <div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
 
 ## 3. Mapping Data Flows Copy
