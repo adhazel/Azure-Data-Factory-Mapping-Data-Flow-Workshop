@@ -45,7 +45,7 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/create_publish_container.png" alt="Create publish Container" /> </kbd>
 
-7. Click the `publish` container name to open the container. Then, click **+ Add Directory**. Add a directory Name `nyx_taxi_sample_pipeline' and click **Save** and add a second directory Name `nyx_taxi_sample_dataflow` and click **Save**.
+7. Click the `publish` container name to open the container. Then, click **+ Add Directory**. Add a directory Name `nyx_taxi_sample_pipeline` and click **Save** and add a second directory Name `nyx_taxi_sample_dataflow` and click **Save**.
 
    <kbd> <img src="../images/module03/create_publish_directories.png" alt="Create publish directories" /> </kbd>
 
