@@ -1,6 +1,6 @@
 # Module 01 - Create Integration Runtime
 
-[< Previous Module](../modules/module00.md) - **[Home](../README.md)** - [Next Module >](../modules/module03.md)
+[< Previous Module](../modules/module00.md) - **[Home](../README.md)** - [Next Module >](../modules/module02.md)
 
 ## :loudspeaker: Introduction
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory and Azure Synapse pipelines. For more information about integration runtimes, see [Integration runtime in Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
@@ -57,6 +57,6 @@ In this workshop, the default Azure Integration Runtime is used, along with Mana
 
 ## :tada: Summary
 
-By successfully creating the integration runtime, the Azure Data Factory has the compute it will use for this lab.
+You have now created an integration runtime with managed virtual network enabled, designed to be used with mapping data flow transformations.
 
 [Continue >](../modules/module02.md)
