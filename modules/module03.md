@@ -117,7 +117,7 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
     | Dataset properties / filename | `x` (This is a placeholder only; the value will be overwritten due to the **Wildcard file path** option selected in the **File path type** radio option.)|
     | File path type | `Wildcard file path` |
     | Wildcard paths / directory | `nyx_taxi_sample` |
-    | Wildcard paths / filename | `*.parquet*` |
+    | Wildcard paths / filename | `\*.parquet` |
 
    <kbd> <img src="../images/module03/create_new_pipeline_copy_source.png" alt="Create new pipeline copy source" /> </kbd>
 
