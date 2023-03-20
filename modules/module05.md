@@ -1,4 +1,4 @@
-# Module 03 - Two Ways to do a Basic Copy
+# Module 05 - Slowly Changing Dimensions
 
 [< Previous Module](../modules/module04.md) - **[Home](../README.md)** - [Next Module >](../modules/module05.md)
 
