@@ -30,6 +30,7 @@ Mapping data flows provide an entirely visual experience with no coding required
 3. [Two Ways to do a Basic Copy](./modules/module03.md)
 4. [Join Placeholder](./modules/module04.md)
 5. [Slowly Changing Dimensions](./modules/module05.md)
+<<<<<<< HEAD
 6. Change Data Capture Storage to SQL (module planned)
 7. [Medallion Architecture: Bronze Layer](./modules/module07.md)
 8. [Medallion Architecture: Silver Layer](./modules/module08.md)
@@ -37,6 +38,8 @@ Mapping data flows provide an entirely visual experience with no coding required
 10. [Medallion Architecture: Consumption Layer](./modules/module10.md)
 11. [Troubleshooting](./modules/module11.md)
 12. [Best Practices](./modules/module12.md)
+=======
+>>>>>>> 1dff1a1 (create placeholder for module 4 join and initial content for module 5 Slowly Changing Dimention)
 
 ## :books: Optional Learning Modules
 
