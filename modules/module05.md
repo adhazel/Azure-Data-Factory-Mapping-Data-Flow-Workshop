@@ -1,3 +1,4 @@
+# Module 05 - Slowly Changing Dimensions
 
 [< Previous Module](../modules/module04.md) - **[Home](../README.md)** - [Next Module >](../modules/module05.md)
 
