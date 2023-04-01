@@ -25,8 +25,6 @@ Based on how to deal with a slowly dimensional data change in different scenario
 
 ## 1. Introduction SCD Type 1 and SCD Type 2
 
-The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This file needs to be in the Azure Storage Account created for this lab.
-
 ### SCD Type 1
 A **SCD Type 1** always reflects the latest values, and when changes in source data are detected, the dimension table data is overwritten. This design approach is common for columns that store supplementary values, like the email address or phone number of a customer. When a customer email address or phone number changes, the dimension table updates the customer row with the new values. It's as if the customer always had this contact information. The key field, such as CustomerID, would stay the same so the records in the fact table automatically link to the updated customer record.
 
