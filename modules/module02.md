@@ -89,12 +89,6 @@ This linked service should be used to connect to the Azure Data Lake Storage Acc
 
 <div align="right"><a href="#module-02---create-linked-services">↥ back to top</a></div>
 
-## :tada: Summary
-
-You have now created the necessary linked services to proceed with the lab content..
-
-[Continue >](../modules/module03.md)
-
 ## 3. Create Azure SQL DB Linked Service
 
 This linked service should be used to connect to the Azure SQL Database. The following steps uses the Managed VNet IR in the screenshots, but feel free to use the default Azure IR if V-Net isolation is not required by your company policy.
@@ -146,3 +140,9 @@ ALTER ROLE [db_owner] ADD MEMBER [name_of_the_adf];
 7. Publish the change to make it effective. Click **Publish all** to proceed. When the Publish all pane appears, click the **Publish** button at the bottom.
 
 <kbd> <img src="../images/module02/create_ls_azuresqldb_7.png" alt="Publish all" /> </kbd>
+
+## :tada: Summary
+
+You have now created the necessary linked services to proceed with the lab content..
+
+[Continue >](../modules/module03.md)
