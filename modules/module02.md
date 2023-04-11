@@ -145,9 +145,3 @@ ALTER ROLE [db_owner] ADD MEMBER [name_of_the_adf];
 7. Publish the change to make it effective. Click **Publish all** to proceed. When the Publish all pane appears, click the **Publish** button at the bottom.
 
 <kbd> <img src="../images/module02/create_ls_azuresqldb_7.png" alt="Publish all" /> </kbd>
-
-## :tada: Summary
-
-You have now created the necessary linked services to proceed with the lab content..
-
-[Continue >](../modules/module03.md)
