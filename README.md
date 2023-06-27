@@ -30,10 +30,17 @@ Mapping data flows provide an entirely visual experience with no coding required
 3. [Two Ways to do a Basic Copy](./modules/module03.md)
 4. [Join Placeholder](./modules/module04.md)
 5. [Slowly Changing Dimensions](./modules/module05.md)
+6. [Change Data Capture](./modules/module06.md)
+7. [Medallion Architecture: Bronze Layer](./modules/module07.md)
+8. [Medallion Architecture: Silver Layer](./modules/module08.md)
+9. [Medallion Architecture: Gold Layer](./modules/module09.md)
+10. [Medallion Architecture: Consumption Layer](./modules/module10.md)
+11. [Troubleshooting](./modules/module11.md)
+12. [Troubleshooting](./modules/module12.md)
 
 ## :books: Optional Learning Modules
 
-3. Other modules here
+Coming soon.
 
 <div align="right"><a href="#azure-data-factory-mapping-data-flow-workshop">↥ back to top</a></div>
 
