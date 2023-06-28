@@ -113,26 +113,24 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/create_publish_directories.png" alt="Create publish directories" /> </kbd>
 
-### Module 3: [Two Ways to do a Basic Copy](./modules/module03.md)
+### Module 4 [Join Placeholder](./modules/module04.md) Sample Data 
 
-Text here
+Instructions here
 
-4. [Join Placeholder](./modules/module04.md)
-5. [Slowly Changing Dimensions](./modules/module05.md)
-6. Change Data Capture Storage to SQL (coming soon)
-7. [Medallion Architecture: Bronze Layer](./modules/module07.md)
-8. [Medallion Architecture: Silver Layer](./modules/module08.md)
-9. [Medallion Architecture: Gold Layer](./modules/module09.md)
-10. [Medallion Architecture: Consumption Layer](./modules/module10.md)
-11. [Troubleshooting](./modules/module11.md)
-12. [Best Practices](./modules/module12.md)
 
+### Module 5 [Slowly Changing Dimensions](./modules/module05.md) Sample Data 
+
+Instructions here
+
+### Module 7 [Medallion Architecture: Bronze Layer](./modules/module07.md) Sample Data 
+
+Instructions here
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
 ## :tada: Summary
 
-By successfully deploying the lab template, you have the Azure resources needed to follow along with the learning exercises.
+By successfully deploying the lab template, you have the Azure resources and data needed to follow along with the learning exercises.
 
 [Continue >](../modules/module01.md)
 
