@@ -8,9 +8,10 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 | #  | Section |
 | --- | --- |
-| 1 | [One Time Lab Environment Setup](#gear-one-time-lab-environment-setup) |
-| 2 | [Per Participant Lab Environment Setup](#gear-per-participant-lab-environment-setup) |
-| 3 | [Stage Sample Data](#gear-stage-sample-data) |
+| 1 | [Prerequisites](#thinking-prerequisites) |
+| 2 | [One Time Lab Environment Setup](#gear-one-time-lab-environment-setup) |
+| 3 | [Per Participant Lab Environment Setup](#gear-per-participant-lab-environment-setup) |
+| 4 | [Stage Sample Data](#gear-stage-sample-data) |
 
 ## :thinking: Prerequisites
 
