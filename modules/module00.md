@@ -26,14 +26,12 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeploy.json)
+  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeploy.json)
 
-    This deployment will do the following:
-    
-    1. Deploy an Azure SQL Server and Database (with an open firewall for training purposes only)
-    2. Deploy an Azure Storage account and container
-    3. Create a Synapse workspace and Synapse Dedicated Pool 
-<br>
+  This deployment will do the following:
+  - Deploy an Azure SQL Server and Database (with an open firewall for training purposes only)
+  - Deploy an Azure Storage account and container
+  - Create a Synapse workspace and Synapse Dedicated Pool 
 
     > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only
 
