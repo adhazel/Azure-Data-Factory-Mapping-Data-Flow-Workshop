@@ -4,12 +4,13 @@
 
 ## :loudspeaker: Introduction
 
-In order to follow along with the lab exercises, you need to provision a set of resources.
+In order to follow along with the lab exercises, you need to provision a set of common resources and then provision an Azure Data Factory for each resource. Finally, sample data needs to be staged.
 
 ## :thinking: Prerequisites
 
+<details>
+
 * An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
-* Owner permissions within a Resource Group to create resources and manage role assignments.
 * The subscription must have the following resource providers registered.
   * Microsoft.Authorization
   * Microsoft.DataFactory
@@ -19,8 +20,10 @@ In order to follow along with the lab exercises, you need to provision a set of 
   * Microsoft.Sql
   * Microsoft.Synapse
   * Microsoft.Insights
-
     > **Warning**  If you are using an **Azure Pass promo code**, the following resource providers - `Microsoft.Storage`, `Microsoft.EventHub`, and `Microsoft.Synapse` are not registered by default. Follow the instructions on [how to register a resource provider](./providers.md) before proceeding with the lab environment deployment below.
+* Owner permissions within a Resource Group to create resources and manage role assignments.
+
+</details>
 
 ## :test_tube: One Time Lab Environment Setup
 
