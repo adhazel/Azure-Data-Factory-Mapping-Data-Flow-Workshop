@@ -9,8 +9,8 @@ In order to follow along with the lab exercises, you need to provision a set of 
 | #  | Jump To |
 | --- | --- |
 | 1 | [Prerequisites](#thinking-prerequisites) |
-| 2 | [One Time Lab Environment Setup](#gear-one-time-lab-environment-setup) |
-| 3 | [Per Participant Lab Environment Setup](#gear-per-participant-lab-environment-setup) |
+| 2 | [One Time Lab Environment Setup](#gear-lab-environment-setup-one-time) |
+| 3 | [Data Factory Setup (Per Participant)](#gear-data-factory-setup-per-participant) |
 | 4 | [Optional SAP Test Environment Setup](#gear-optional-sap-test-environment-setup) |
 | 5 | [Stage Sample Data](#gear-stage-sample-data) |
 
@@ -31,7 +31,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
-## :gear:  Lab Environment Setup (One Time)
+## :gear: Lab Environment Setup (One Time)
 
 The below instructions require resource group owner role and will take 10 minutes to complete with the appropriate access.
 
@@ -66,9 +66,9 @@ The below instructions require resource group owner role and will take 10 minute
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
-## :gear: Per Participant Lab Environment Setup
+## :gear: Data Factory Setup (Per Participant)
 
-The below instructions require resource group owner role and will take 10 minutes to complete with the appropriate access.
+The below instructions require resource group owner role and will take approximately 5 minutes to complete with the appropriate access. These steps should be repeated for each lab participant.
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
@@ -83,7 +83,7 @@ The below instructions require resource group owner role and will take 10 minute
 
 ## :gear: Optional SAP Test Environment Setup
 
-The below instructions require subscription-level owner role and will take 3-4 hours to complete with the appropriate access.
+The below instructions require subscription-level owner role and will take 3-4 hours to complete with the appropriate access. Only complete this section if module 13 is part of the Lab. This is a one time setup.
 
 1. Get an SAP user number (SUSER) and password to be used to access the instances in SAP CAL. SAP CAL is a 30-day trial SAP system after which a valid license needs to be deployed. Generally, SUSERs are managed by a local SAP Basis Team. 
 
