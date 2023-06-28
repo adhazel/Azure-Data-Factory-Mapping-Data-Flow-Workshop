@@ -9,9 +9,10 @@ In order to follow along with the lab exercises, you need to provision a set of 
 | #  | Jump To |
 | --- | --- |
 | 1 | [Prerequisites](#thinking-prerequisites) |
-| 2 | [One Time Lab Environment Setup](#gear-one-time-lab-environment-setup) |
-| 3 | [Per Participant Lab Environment Setup](#gear-per-participant-lab-environment-setup) |
-| 4 | [Stage Sample Data](#gear-stage-sample-data) |
+| 2 | [Lab Environment Setup](#gear-lab-environment-setup-one-time) |
+| 3 | [Data Factory Setup (Per Participant)](#gear-data-factory-setup-per-participant) |
+| 4 | [Optional SAP Test Environment Setup](#gear-optional-sap-test-environment-setup) |
+| 5 | [Stage Sample Data](#gear-stage-sample-data) |
 
 ## :thinking: Prerequisites
 
@@ -26,11 +27,13 @@ In order to follow along with the lab exercises, you need to provision a set of 
   * Microsoft.Synapse
   * Microsoft.Insights
     > **Warning**  If you are using an **Azure Pass promo code**, the following resource providers - `Microsoft.Storage`, `Microsoft.EventHub`, and `Microsoft.Synapse` are not registered by default. Follow the instructions on [how to register a resource provider](./providers.md) before proceeding with the lab environment deployment below.
-* Owner permissions within a Resource Group to create resources and manage role assignments.
+
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
-## :gear: One Time Lab Environment Setup
+## :gear: Lab Environment Setup
+
+The below instructions require resource group owner role and will take 10 minutes to complete with the appropriate access.
 
   > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only. Use a testing environment for training. Consult appropriate networking and security teams before production implementation.
 
@@ -63,7 +66,9 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
-## :gear: Per Participant Lab Environment Setup
+## :gear: Data Factory Setup (Per Participant)
+
+The below instructions require resource group owner role and will take approximately 5 minutes to complete with the appropriate access. These steps should be repeated for each lab participant.
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
@@ -71,9 +76,23 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
     The below Azure resources will be included in the deployment:
     - Azure Data Factory
-    - Role assignment granting the participant resource group contributor access
-    - Role assignment granting the participant Storage Blob Data Contributor access to the Storage Accont for data files
-    - Role assignment granting the Azure Data Factory permission to the Storage Account for data files
+    - Role assignment granting the participant resource group contributor access and Storage Blob Data Contributor access
+    - Role assignment granting the Azure Data Factory resource group contributor and Storage Blob Data Contributor access
+
+<div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
+
+## :gear: Optional SAP Test Environment Setup
+
+The below instructions require subscription-level owner role and will take 3-4 hours to complete with the appropriate access. Only complete this section if module 13 is part of the Lab. This is a one time setup.
+
+1. Get an SAP user number (SUSER) and password to be used to access the instances in SAP CAL. SAP CAL is a 30-day trial SAP system after which a valid license needs to be deployed. Generally, SUSERs are managed by a local SAP Basis Team. 
+
+2. Go to the GitHub repository "MCW-SAP-plus-extend-and-innovate-with-Data-and-AI" or click the link in the next step :smile:.
+
+3. Navigate to [./Hands-on lab/Before the HOL – SAP plus extend and innovate with Data and AI.md](https://github.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/blob/main/Hands-on%20lab/Before%20the%20HOL%20-%20SAP%20plus%20extend%20and%20innovate%20with%20Data%20and%20AI.md#task-2-create-an-sap-cloud-appliance) file and complete only the below sections to ensure you have an SAP test environment ready for the event.
+    - Task 2: Create an SAP Cloud Appliance
+    - Task 3: Deploy the Azure Resources
+
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
