@@ -24,7 +24,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 ## :test_tube: One Time Lab Environment Setup
 
-  > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only
+  > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only. Use a testing environment for training. Consult with appropriate networking and security teams before production implementation.
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
