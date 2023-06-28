@@ -32,10 +32,11 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeploy.json)
 
-    This deployment will do the following:
-    - Deploy an Azure SQL Server and Database (with an open firewall for training purposes only)
-    - Deploy an Azure Storage account and container
-    - Create a Synapse workspace and Synapse Dedicated Pool 
+    The below Azure resources will be included in the deployment:
+    - Azure SQL Server and Database
+    - Azure Storage account and container
+    - Azure Synapse workspace and Synapse Dedicated Pool
+    - Azure Key Vault
 
 2. Beneath the **Resource group** field, click **Create new** and provide a unique name (e.g. `adfmdflab-rg`), select a [valid location](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all) (e.g. `West US 3`), and then click **Review + create**.
 
