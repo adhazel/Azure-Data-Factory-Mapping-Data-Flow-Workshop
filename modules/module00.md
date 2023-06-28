@@ -23,7 +23,9 @@ In order to follow along with the lab exercises, you need to provision a set of 
     > **Warning**  If you are using an **Azure Pass promo code**, the following resource providers - `Microsoft.Storage`, `Microsoft.EventHub`, and `Microsoft.Synapse` are not registered by default. Follow the instructions on [how to register a resource provider](./providers.md) before proceeding with the lab environment deployment below.
 
 ## :test_tube: One Time Lab Environment Setup
+
 <details>
+
   > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only. Use a testing environment for training. Consult appropriate networking and security teams before production implementation.
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
@@ -50,14 +52,19 @@ In order to follow along with the lab exercises, you need to provision a set of 
 5. If successful, you should see the resource group resources, similar to the screenshot below.
 
     ![Resource Group](../images/module00/deployed_resources.png)
+
 </details>
+
 ## :test_tube: Per Participant Lab Environment Setup
+
 <details>
+
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeploy.json)
 
 </details>
+
 ## :tada: Summary
 
 By successfully deploying the lab template, you have the Azure resources needed to follow along with the learning exercises.
