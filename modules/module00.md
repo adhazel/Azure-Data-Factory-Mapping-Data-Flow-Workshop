@@ -66,7 +66,13 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeploy.json)
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeployadf.json)
+
+    The below Azure resources will be included in the deployment:
+    - Azure Data Factory
+    - Role assignment granting the participant resource group contributor access
+    - Role assignment granting the participant Storage Blob Data Contributor access to the Storage Accont for data files
+    - Role assignment granting the Azure Data Factory permission to the Storage Account for data files
 
 </details>
 
