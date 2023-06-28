@@ -4,11 +4,15 @@
 
 ## :loudspeaker: Introduction
 
-In order to follow along with the lab exercises, you need to provision a set of common resources and then provision an Azure Data Factory for each resource. Finally, sample data needs to be staged. Expand the sections below by clicking the `Details` links.
+In order to follow along with the lab exercises, you need to provision a set of common resources and then provision an Azure Data Factory for each resource. Finally, sample data needs to be staged. 
+
+| #  | Section |
+| --- | --- |
+| 1 | [One Time Lab Environment Setup](#gear-one-time-lab-environment-setup) |
+| 2 | [Per Participant Lab Environment Setup](#gear-per-participant-lab-environment-setup) |
+| 3 | [Stage Sample Data](#gear-stage-sample-data) |
 
 ## :thinking: Prerequisites
-
-<details>
 
 * An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
 * The subscription must have the following resource providers registered.
@@ -23,11 +27,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
     > **Warning**  If you are using an **Azure Pass promo code**, the following resource providers - `Microsoft.Storage`, `Microsoft.EventHub`, and `Microsoft.Synapse` are not registered by default. Follow the instructions on [how to register a resource provider](./providers.md) before proceeding with the lab environment deployment below.
 * Owner permissions within a Resource Group to create resources and manage role assignments.
 
-</details>
-
 ## :gear: One Time Lab Environment Setup
-
-<details>
 
   > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only. Use a testing environment for training. Consult appropriate networking and security teams before production implementation.
 
@@ -58,11 +58,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
     ![Resource Group](../images/module00/deployed_resources.png)
 
-</details>
-
 ## :gear: Per Participant Lab Environment Setup
-
-<details>
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
@@ -74,11 +70,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
     - Role assignment granting the participant Storage Blob Data Contributor access to the Storage Accont for data files
     - Role assignment granting the Azure Data Factory permission to the Storage Account for data files
 
-</details>
-
 ## :gear: Stage Sample Data
-
-<details>
 
 Sample data is used throughout the modules. Sample data is listed by module below. Follow the instructions to stage it before the event.
 
@@ -127,7 +119,6 @@ Text here
 12. [Best Practices](./modules/module12.md)
 
 
-</details>
 
 
 ## :tada: Summary
