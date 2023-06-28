@@ -72,7 +72,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 ## :test_tube: Stage Sample Data
 
-<details>
+<span style="color: green"><details></span>
 
 Sample data is used throughout the modules. Sample data is listed by module below. Follow the instructions to stage it before the event.
 
