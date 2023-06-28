@@ -4,7 +4,7 @@
 
 ## :loudspeaker: Introduction
 
-In order to follow along with the lab exercises, you need to provision a set of common resources and then provision an Azure Data Factory for each resource. Finally, sample data needs to be staged.
+In order to follow along with the lab exercises, you need to provision a set of common resources and then provision an Azure Data Factory for each resource. Finally, sample data needs to be staged. Expand the sections below by clicking the `Details` links.
 
 ## :thinking: Prerequisites
 
