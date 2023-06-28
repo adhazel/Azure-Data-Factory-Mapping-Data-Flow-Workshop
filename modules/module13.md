@@ -36,6 +36,8 @@ Source System:
 
 <kbd> <img src="../images/module13/overview_of_ETL.png" alt="Overview of SAP CDC to ADF" /> </kbd>
 
+<div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
+
 ## 2. Prepare ADF for data extraction from SAP S/4HANA
 
 ## 2.1 Download and install the self-hosted integration runtime
@@ -226,6 +228,8 @@ KeyColums : select **SalesDocument**, this is the key column of the SalesOrderHe
 
 <kbd> <img src="../images/module13/PIPELINE15.png" alt="LINKSRV" /> </kbd>
 
+<div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
+
 ## 3 Data Extraction from SAP S/4HANA to ADF 
 ## 3.1 Full Data Extraction
 
@@ -314,6 +318,8 @@ KeyColums : select **SalesDocument**, this is the key column of the SalesOrderHe
 3.2.6 Monitor the extraction using ODQMON. Note that it shows only 1 Row being updated and the Change Data field has the status **U** meaning update.
 
 <kbd> <img src="../images/module13/EXTRAKT15.png" alt="LINKSRV" /> </kbd>
+
+<div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
 
 ## 3. Ingest Sales order Header data from SAP to Azure Data Lake
 
