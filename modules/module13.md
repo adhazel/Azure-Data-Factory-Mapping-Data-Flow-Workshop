@@ -23,7 +23,7 @@ This module will demonstrate the setup of the following tasks:
 | 2 | [Prepare ADF for data extraction from SAP S/4HANA](2-prepare-adf-for-data-extraction-from-sap-s4hana) |
 | 3 | [Data Extration trigger](#3-data-extraction-from-sap-s4hana-to-adf) |
 
-<div align="right"><a href="#module-13---SAP CDC ADF setup">↥ back to top</a></div>
+<div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
 
 ## 1. Overview of Implemented ETL Process 
 
