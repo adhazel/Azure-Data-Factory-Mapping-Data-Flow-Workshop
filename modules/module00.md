@@ -34,9 +34,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
     2. Deploy an Azure Storage account and container
     3. Create a Synapse workspace and Synapse Dedicated Pool 
 
-    > **Warning** 
-    > 
-    > Deployed assets will include allow Azure and allow all firewall rules for training purposes only
+    > **Warning** Deployed assets will include allow Azure and allow all firewall rules for training purposes only
 
 
 2. Beneath the **Resource group** field, click **Create new** and provide a unique name (e.g. `adfmdflab-rg`), select a [valid location](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all) (e.g. `West US 3`), and then click **Review + create**.
