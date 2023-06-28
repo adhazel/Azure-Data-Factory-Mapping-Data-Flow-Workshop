@@ -1,6 +1,6 @@
 # Module 12 - SAP CDC Connector
 
-[< Previous Module](../modules/module02.md) - **[Home](../README.md)** - [Next Module >](../modules/module04.md)
+[< Previous Module](../modules/module11.md) - **[Home](../README.md)**
 
 ## Setup of ADF SAP-CDC Connector
 
@@ -551,5 +551,4 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
 You have now completed this module. You have performed a simple copy using both the **Pipelines** and the **Data flows** features. The pipelines copy used the Azure IR compute that does not use spark while the data flows pipeline you created utilized an IR with managed virtual network enabled with a medium sized Apache spark cluster.
 
-[Continue >](../modules/module04.md)
 
