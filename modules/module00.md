@@ -34,9 +34,10 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
     The below Azure resources will be included in the deployment:
     - Azure SQL Server and Database
-    - Azure Storage account and container
     - Azure Synapse workspace and Synapse Dedicated Pool
+    - 2 Azure Storage accounts (1 for the Synapse workspace and 1 for data files)
     - Azure Key Vault
+    - Role assignment granting the Synapse workspace permission to the Storage Account for data files
 
 2. Beneath the **Resource group** field, click **Create new** and provide a unique name (e.g. `adfmdflab-rg`), select a [valid location](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all) (e.g. `West US 3`), and then click **Review + create**.
 
