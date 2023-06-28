@@ -15,8 +15,6 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 ## :thinking: Prerequisites
 
-<div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
-
 * An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
 * The subscription must have the following resource providers registered.
   * Microsoft.Authorization
@@ -33,8 +31,6 @@ In order to follow along with the lab exercises, you need to provision a set of 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
 ## :gear: One Time Lab Environment Setup
-
-<div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
   > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only. Use a testing environment for training. Consult appropriate networking and security teams before production implementation.
 
@@ -68,8 +64,6 @@ In order to follow along with the lab exercises, you need to provision a set of 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
 ## :gear: Per Participant Lab Environment Setup
-
-<div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
@@ -137,8 +131,6 @@ Text here
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
 ## :tada: Summary
-
-<div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
 By successfully deploying the lab template, you have the Azure resources needed to follow along with the learning exercises.
 
