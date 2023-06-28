@@ -24,9 +24,9 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 ## :test_tube: One Time Lab Environment Setup
 
-1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
-
   > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only
+
+1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeploy.json)
 
@@ -34,9 +34,6 @@ In order to follow along with the lab exercises, you need to provision a set of 
     - Deploy an Azure SQL Server and Database (with an open firewall for training purposes only)
     - Deploy an Azure Storage account and container
     - Create a Synapse workspace and Synapse Dedicated Pool 
-
-
-
 
 2. Beneath the **Resource group** field, click **Create new** and provide a unique name (e.g. `adfmdflab-rg`), select a [valid location](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all) (e.g. `West US 3`), and then click **Review + create**.
 
