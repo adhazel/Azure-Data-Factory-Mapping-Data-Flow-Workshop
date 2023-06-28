@@ -87,7 +87,7 @@ The below instructions require subscription-level owner role and will take 3-4 h
 
 1. Get an SAP user number (SUSER) and password to be used to access the instances in SAP CAL. SAP CAL is a 30-day trial SAP system after which a valid license needs to be deployed. Generally, SUSERs are managed by a local SAP Basis Team. 
 
-2. Go to the GitHub repository [MCW-SAP-plus-extend-and-innovate-with-Data-and-AI](https://github.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/blob/main/Hands-on%20lab/Before%20the%20HOL%20-%20SAP%20plus%20extend%20and%20innovate%20with%20Data%20and%20AI.md#task-2-create-an-sap-cloud-appliance).
+2. Go to the GitHub repository "MCW-SAP-plus-extend-and-innovate-with-Data-and-AI" or click the link in the next step :smile:.
 
 3. Navigate to [./Hands-on lab/Before the HOL – SAP plus extend and innovate with Data and AI.md](https://github.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/blob/main/Hands-on%20lab/Before%20the%20HOL%20-%20SAP%20plus%20extend%20and%20innovate%20with%20Data%20and%20AI.md#task-2-create-an-sap-cloud-appliance) file and complete only the below sections to ensure you have an SAP test environment ready for the event.
     - Task 2: Create an SAP Cloud Appliance
