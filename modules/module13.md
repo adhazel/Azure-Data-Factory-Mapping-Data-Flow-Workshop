@@ -319,6 +319,9 @@ KeyColums : select **SalesDocument**, this is the key column of the SalesOrderHe
 
 The CDS view Sales order Header information residing in S/4HANA, is exposed with OData services. The self-hosted integration runtime installed on the SAP virtual machine enables connectivity between Azure Data Factory and S/4HANA, this will allow for local web calls to take place to the OData endpoints to retrieve sales data.
 
+
+*** OLD CONTENT BELOW ***
+
 The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This file needs to be in the Azure Storage Account created for this lab.
 
 1. Download this file from [../data_to_be_staged/adls/inbound/nyx_taxi_sample/NYCTripSmall.parquet](../data_to_be_staged/adls/inbound/nyx_taxi_sample/NYCTripSmall.parquet).
@@ -347,7 +350,7 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/create_publish_directories.png" alt="Create publish directories" /> </kbd>
 
-<div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
+<div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
 
 ## 2. Pipeline Copy
 
@@ -437,7 +440,7 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/publish_new_pipeline.png" alt="Publish all" /> </kbd>
 
-<div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
+<div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
 
 ## 3. Mapping Data Flows Copy
 
@@ -545,7 +548,7 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/df_publish_all.png" alt="Publish all" /> </kbd>
 
-<div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
+<div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
 
 ## :tada: Summary
 
