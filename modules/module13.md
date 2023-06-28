@@ -329,6 +329,6 @@ The CDS view Sales order Header information residing in S/4HANA, is exposed with
 
 ## :tada: Summary
 
-You have now completed this module. You have performed a simple copy using both the **Pipelines** and the **Data flows** features. The pipelines copy used the Azure IR compute that does not use spark while the data flows pipeline you created utilized an IR with managed virtual network enabled with a medium sized Apache spark cluster.
+TODO
 
 
