@@ -9,7 +9,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 | #  | Jump To |
 | --- | --- |
 | 1 | [Prerequisites](#thinking-prerequisites) |
-| 2 | [Lab Environment Setup One Time](#gear-lab-environment-setup-one-time) |
+| 2 | [Lab Environment Setup (One Time)](#gear-lab-environment-setup-one-time) |
 | 3 | [Data Factory Setup (Per Participant)](#gear-data-factory-setup-per-participant) |
 | 4 | [Optional SAP Test Environment Setup](#gear-optional-sap-test-environment-setup) |
 | 5 | [Stage Sample Data](#gear-stage-sample-data) |
