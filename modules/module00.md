@@ -90,8 +90,8 @@ The below instructions require subscription-level owner role and will take 3-4 h
 
 3. Navigate to [./Hands-on lab/Before the HOL – SAP plus extend and innovate with Data and AI.md]("https://github.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/blob/main/Hands-on lab/Before the HOL - SAP plus extend and innovate with Data and AI.md#task-2-create-an-sap-cloud-appliance") file and complete only the below sections to ensure you have an SAP test environment ready for the event.
 
-  a. Task 2: Create an SAP Cloud Appliance 
-  b. Task 3: Deploy the Azure Resources
+    a. Task 2: Create an SAP Cloud Appliance 
+    b. Task 3: Deploy the Azure Resources
 
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
