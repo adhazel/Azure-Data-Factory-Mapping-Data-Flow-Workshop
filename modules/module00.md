@@ -34,6 +34,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
     2. Deploy an Azure Storage account and container
     3. Create a Synapse workspace and Synapse Dedicated Pool 
 <br>
+
     > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only
 
 
