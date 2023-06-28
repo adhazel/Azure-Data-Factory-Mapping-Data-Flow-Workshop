@@ -28,10 +28,50 @@ Mapping data flows provide an entirely visual experience with no coding required
 1. [Create Integration Runtime](./modules/module01.md)
 2. [Create Linked Services](./modules/module02.md)
 3. [Two Ways to do a Basic Copy](./modules/module03.md)
+4. [Join Placeholder](./modules/module04.md)
+5. [Slowly Changing Dimensions](./modules/module05.md)
+6. Change Data Capture Storage to SQL (module planned)
+7. [Medallion Architecture: Bronze Layer](./modules/module07.md)
+8. [Medallion Architecture: Silver Layer](./modules/module08.md)
+9. [Medallion Architecture: Gold Layer](./modules/module09.md)
+10. [Medallion Architecture: Consumption Layer](./modules/module10.md)
+11. [Troubleshooting](./modules/module11.md)
+12. [Best Practices](./modules/module12.md)
 
 ## :books: Optional Learning Modules
 
-3. Other modules here
+1. [SAP Change Data Capture](./modules/module06.md)
+2. Snowflake (module planned)
+
+<div align="right"><a href="#azure-data-factory-mapping-data-flow-workshop">↥ back to top</a></div>
+
+## :books: Medallion Architecture
+In an medallion architecture, data is organized into layers: 
+- **Bronze Layer**: Holds raw data.
+- **Silver Layer**: Contains cleansed data.
+- **Gold Layer**: Stores aggregated data that's useful for business analytics.
+- **Consumption Layer**: Applications and data integrations read from the gold layer and may optionally create versions of the data that are purpose-built for their use case. This layer may reside within a transactional database used by the application, another analytical storage repository, or built as an API or another technology.
+
+In this model, data is democratized so that all or most services that work with a dataset connect to a single underlying data source to ensure consistency. Integrated, row-level security is typically built in to allow for maxium data asset re-use.
+
+In this lab, the following concepts by layer are present:
+- **Bronze Layer**
+  - Data Ingestion
+  - Data Retention Policy
+- **Silver Layer**
+  - De-duplication
+  - Data quality assertions
+  - Cast data types
+  - Joins
+  - Reroute errors
+  - Schema drift
+- **Gold Layer**
+  - Calculated value(s)
+  - Given that the source includes both general and confidential attributes, the data is sinked twice, once for consumption of general data and once for consumption of confidential data. 
+    - *Sink for general sensitivity*: selected attributes that are confirmed to be available for general use are included using explicit column.
+    - *Sink for confidential sensitivity*: all attributes are passed through using schema drift and auto-mapping.
+- **Consumption Layer**
+  - Read gold layer, and sink aggregate dataset with a new calculated column
 
 <div align="right"><a href="#azure-data-factory-mapping-data-flow-workshop">↥ back to top</a></div>
 
