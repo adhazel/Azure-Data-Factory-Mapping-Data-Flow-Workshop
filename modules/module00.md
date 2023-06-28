@@ -86,13 +86,13 @@ Sample data is used throughout the modules. Sample data is listed by module belo
 
 No sample data 
 
-#### Module 1: [Create Linked Services](./modules/module02.md)
+### Module 1: [Create Linked Services](./modules/module02.md)
 
 Text here
 
-#### Module 2: [Two Ways to do a Basic Copy](./modules/module03.md)
+### Module 2: [Two Ways to do a Basic Copy](./modules/module03.md)
 
-
+Text here
 
 4. [Join Placeholder](./modules/module04.md)
 5. [Slowly Changing Dimensions](./modules/module05.md)
