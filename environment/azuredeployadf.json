@@ -8,10 +8,30 @@
       "templateHash": "2803229554544767325"
     }
   },
+  "parameters": {
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the attendee user principal ID. (see Azure Active Directory > select User > Object ID)"
+      }
+    },
+    "customUserDesignation": {
+      "type": "string",
+      "metadata": {
+        "description": "A suffix to use for the Data Factory name and role assignments name that are created for the user. Do not use more than 6 characters."
+      }
+    },
+    "dfmdf_data_adls_name": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Storage Account for data files, starting with dfmdf and ending with adls."
+      }
+    }
+  },
   "variables": {
     "location": "[resourceGroup().location]",
-    "randomString": "[substring(guid(resourceGroup().id, deployment().name), 0, 6)]",
     "roleDefinitionprefix": "[format('/subscriptions/{0}/providers/Microsoft.Authorization/roleDefinitions', subscription().subscriptionId)]",
+    // "roleAssignmentName": "[guid(parameters('principalId'), parameters('roleDefinitionID'), resourceGroup().id)]",
     "role": {
       "Owner": "[format('{0}/8e3af657-a8ff-443c-a75c-2fe8c4bcb635', variables('roleDefinitionprefix'))]",
       "Contributor": "[format('{0}/b24988ac-6180-42a0-ab88-20f7382dd24c', variables('roleDefinitionprefix'))]",
@@ -24,123 +44,9 @@
   },
   "resources": [
     {
-      "type": "Microsoft.Sql/servers/firewallRules",
-      "apiVersion": "2021-02-01-preview",
-      "name": "[format('{0}/{1}', format('dfmdf-{0}-sqlsvr', variables('randomString')), 'allowAzure')]",
-      "properties": {
-        "startIpAddress": "0.0.0.0",
-        "endIpAddress": "0.0.0.0"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Sql/servers', format('dfmdf-{0}-sqlsvr', variables('randomString')))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Sql/servers/firewallRules",
-      "apiVersion": "2021-02-01-preview",
-      "name": "[format('{0}/{1}', format('dfmdf-{0}-sqlsvr', variables('randomString')), 'allowAll')]",
-      "properties": {
-        "startIpAddress": "0.0.0.0",
-        "endIpAddress": "255.255.255.255"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Sql/servers', format('dfmdf-{0}-sqlsvr', variables('randomString')))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
-      "apiVersion": "2021-04-01",
-      "name": "[format('{0}/{1}/{2}', format('dfmdf{0}synapse', variables('randomString')), 'default', format('synapsefs{0}', variables('randomString')))]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts/blobServices', format('dfmdf{0}synapse', variables('randomString')), 'default')]"
-      ]
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts/blobServices",
-      "apiVersion": "2021-04-01",
-      "name": "[format('{0}/{1}', format('dfmdf{0}synapse', variables('randomString')), 'default')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', format('dfmdf{0}synapse', variables('randomString')))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Synapse/workspaces/firewallRules",
-      "apiVersion": "2021-05-01",
-      "name": "[format('{0}/{1}', format('dfmdf-{0}-synapse', variables('randomString')), 'allowAll')]",
-      "properties": {
-        "startIpAddress": "0.0.0.0",
-        "endIpAddress": "255.255.255.255"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Synapse/workspaces', format('dfmdf-{0}-synapse', variables('randomString')))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
-      "name": "[format('dfmdf{0}adls', variables('randomString'))]",
-      "location": "[variables('location')]",
-      "kind": "StorageV2",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "properties": {
-        "isHnsEnabled": true,
-        "minimumTlsVersion": "TLS1_2",
-        "allowBlobPublicAccess": false,
-        "supportsHttpsTrafficOnly": true
-      }
-    },
-    {
-      "type": "Microsoft.Sql/servers",
-      "apiVersion": "2021-02-01-preview",
-      "name": "[format('dfmdf-{0}-sqlsvr', variables('randomString'))]",
-      "location": "[variables('location')]",
-      "properties": {
-        "administratorLogin": "sqladmin",
-        "administratorLoginPassword": "sqlPassword!"
-      }
-    },
-    {
-      "type": "Microsoft.Sql/servers/databases",
-      "apiVersion": "2021-02-01-preview",
-      "name": "[format('{0}/{1}', format('dfmdf-{0}-sqlsvr', variables('randomString')), format('dfmdf-{0}-sqldb', variables('randomString')))]",
-      "location": "[variables('location')]",
-      "sku": {
-        "name": "GP_S_Gen5",
-        "tier": "GeneralPurpose",
-        "family": "Gen5",
-        "capacity": 1
-      },
-      "properties": {
-        "collation": "SQL_Latin1_General_CP1_CI_AS",
-        "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
-        "autoPauseDelay": 60,
-        "requestedBackupStorageRedundancy": "Local",
-        "sampleName": "AdventureWorksLT"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Sql/servers', format('dfmdf-{0}-sqlsvr', variables('randomString')))]"
-      ]
-    },
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2021-04-01-preview",
-      "name": "[format('dfmdf-{0}-keyvault', variables('randomString'))]",
-      "location": "[variables('location')]",
-      "properties": {
-        "sku": {
-          "family": "A",
-          "name": "standard"
-        },
-        "tenantId": "[subscription().tenantId]",
-        "accessPolicies": []
-      }
-    },
-    {
       "type": "Microsoft.DataFactory/factories",
       "apiVersion": "2018-06-01",
-      "name": "[format('dfmdf-{0}-adf', variables('randomString'))]",
+      "name": "[format('dfmdf-adf-{0}', parameters('customUserDesignation'))]",
       "location": "[variables('location')]",
       "properties": {
         "publicNetworkAccess": "Enabled"
@@ -148,361 +54,53 @@
       "identity": {
         "type": "SystemAssigned"
       }
-    },
-
+    }, 
     {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
-      "name": "[format('dfmdf{0}synapse', variables('randomString'))]",
-      "location": "[variables('location')]",
-      "kind": "StorageV2",
-      "sku": {
-        "name": "Standard_LRS"
-      },
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2020-08-01-preview",
+      "scope": "[format('Microsoft.Storage/storageAccounts/{0}', parameters('dfmdf_data_adls_name'))]",
+      "name": "[guid(parameters('principalId'), 'datastoragedatacontributor')]",
       "properties": {
-        "isHnsEnabled": true,
-        "networkAcls": {
-          "bypass": "AzureServices",
-          "virtualNetworkRules": [],
-          "ipRules": [],
-          "defaultAction": "Allow"
-        },
-        "minimumTlsVersion": "TLS1_2",
-        "allowBlobPublicAccess": false,
-        "supportsHttpsTrafficOnly": true,
-        "accessTier": "Hot"
+        "principalId": "[reference(format('dfmdf-adf-{0}', parameters('customUserDesignation')), '2018-06-01', 'full').identity.principalId]",
+        "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
+        "principalType": "ServicePrincipal"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('dfmdf-adf-{0}', parameters('customUserDesignation')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2020-08-01-preview",
+      "name": "[guid(format('dfmdf-adf-{0}', parameters('customUserDesignation')), 'adfrgcontributor')]",
+      "properties": {
+        "principalId": "[reference(format('dfmdf-adf-{0}', parameters('customUserDesignation')), '2018-06-01', 'full').identity.principalId]",
+        "roleDefinitionId": "[variables('role').Contributor]",
+        "principalType": "ServicePrincipal"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('dfmdf-adf-{0}', parameters('customUserDesignation')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2020-08-01-preview",
+      "scope": "[format('Microsoft.Storage/storageAccounts/{0}', parameters('dfmdf_data_adls_name'))]",
+      "name": "[guid(parameters('principalId'), 'userdatastoragedatacontributor')]",
+      "properties": {
+        "principalId": "[parameters('principalId')]",
+        "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
+        "principalType": "User"
       }
     },
     {
-      "type": "Microsoft.Synapse/workspaces",
-      "apiVersion": "2021-05-01",
-      "name": "[format('dfmdf-{0}-synapse', variables('randomString'))]",
-      "location": "[variables('location')]",
-      "properties": {
-        "defaultDataLakeStorage": {
-          "accountUrl": "[reference(format('dfmdf{0}synapse', variables('randomString'))).primaryEndpoints.dfs]",
-          "filesystem": "[format('synapsefs{0}', variables('randomString'))]"
-        }
-      },
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', format('dfmdf{0}synapse', variables('randomString')))]"
-      ]
-    },
-    {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-08-01-preview",
-      "scope": "[format('Microsoft.Storage/storageAccounts/{0}', format('dfmdf{0}synapse', variables('randomString')))]",
-      "name": "[guid(variables('randomString'), 'role1')]",
+      "name": "[guid(parameters('principalId'), 'rgcontributor')]",
       "properties": {
-        "principalId": "[reference(format('dfmdf-{0}-synapse', variables('randomString')), '2021-05-01', 'full').identity.principalId]",
-        "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
-        "principalType": "ServicePrincipal"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Synapse/workspaces', format('dfmdf-{0}-synapse', variables('randomString')))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', format('dfmdf{0}synapse', variables('randomString')))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2020-08-01-preview",
-      "scope": "[format('Microsoft.Storage/storageAccounts/{0}', format('dfmdf{0}adls', variables('randomString')))]",
-      "name": "[guid(variables('randomString'), 'role2')]",
-      "properties": {
-        "principalId": "[reference(format('dfmdf-{0}-adf', variables('randomString')), '2018-06-01', 'full').identity.principalId]",
-        "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
-        "principalType": "ServicePrincipal"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.DataFactory/factories', format('dfmdf-{0}-adf', variables('randomString')))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', format('dfmdf{0}synapse', variables('randomString')))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
-      "name": "SQLVMDeployment",
-      "properties": {
-        "expressionEvaluationOptions": {
-          "scope": "inner"
-        },
-        "mode": "Incremental",
-        "parameters": {
-          "location": {
-            "value": "[variables('location')]"
-          },
-          "randomString": {
-            "value": "[variables('randomString')]"
-          }
-        },
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "metadata": {
-            "_generator": {
-              "name": "bicep",
-              "version": "0.9.1.41621",
-              "templateHash": "13500320971029977407"
-            }
-          },
-          "parameters": {
-            "location": {
-              "type": "string"
-            },
-            "randomString": {
-              "type": "string"
-            }
-          },
-          "variables": {
-            "subnetName": "[format('dfmdf-{0}-subnet', parameters('randomString'))]",
-            "virtualNetworkName": "[format('dfmdf-{0}-vnet', parameters('randomString'))]",
-            "networkSecurityGroupName": "[format('dfmdf-{0}-nsg', parameters('randomString'))]",
-            "publicIpAddressName": "[format('dfmdf-{0}-pub-ip', parameters('randomString'))]",
-            "virtualMachineComputerName": "[format('dfmdf{0}com', parameters('randomString'))]",
-            "sqlVirtualMachineName": "[format('dfmdf-{0}-sqlvm', parameters('randomString'))]",
-            "adminUsername": "[format('sqladmin{0}', parameters('randomString'))]",
-            "upperString": "[toUpper(parameters('randomString'))]",
-            "adminPassword": "[format('{0}!{1}@{2}0aA', parameters('randomString'), variables('upperString'), parameters('randomString'))]"
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Network/virtualNetworks/subnets",
-              "apiVersion": "2020-11-01",
-              "name": "[format('{0}/{1}', variables('virtualNetworkName'), variables('subnetName'))]",
-              "properties": {
-                "addressPrefix": "10.2.0.0/24"
-              },
-              "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
-              ]
-            },
-            {
-              "type": "Microsoft.Network/networkInterfaces",
-              "apiVersion": "2018-10-01",
-              "name": "[format('dfmdf-{0}-ni', parameters('randomString'))]",
-              "location": "[parameters('location')]",
-              "properties": {
-                "ipConfigurations": [
-                  {
-                    "name": "[variables('subnetName')]",
-                    "properties": {
-                      "subnet": {
-                        "id": "[format('{0}/subnets/{1}', resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName')), variables('subnetName'))]"
-                      },
-                      "privateIPAllocationMethod": "Dynamic",
-                      "publicIPAddress": {
-                        "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
-                      }
-                    }
-                  }
-                ],
-                "networkSecurityGroup": {
-                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-                }
-              },
-              "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
-                "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
-              ]
-            },
-            {
-              "type": "Microsoft.Network/networkSecurityGroups",
-              "apiVersion": "2019-02-01",
-              "name": "[variables('networkSecurityGroupName')]",
-              "location": "[parameters('location')]",
-              "properties": {
-                "securityRules": [
-                  {
-                    "name": "RDP",
-                    "properties": {
-                      "priority": 300,
-                      "protocol": "Tcp",
-                      "access": "Allow",
-                      "direction": "Inbound",
-                      "sourceAddressPrefix": "*",
-                      "sourcePortRange": "*",
-                      "destinationAddressPrefix": "*",
-                      "destinationPortRange": "3389"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "Microsoft.Network/virtualNetworks",
-              "apiVersion": "2020-11-01",
-              "name": "[variables('virtualNetworkName')]",
-              "location": "[parameters('location')]",
-              "properties": {
-                "addressSpace": {
-                  "addressPrefixes": [
-                    "10.2.0.0/16"
-                  ]
-                }
-              }
-            },
-            {
-              "type": "Microsoft.Network/publicIPAddresses",
-              "apiVersion": "2019-02-01",
-              "name": "[variables('publicIpAddressName')]",
-              "location": "[parameters('location')]",
-              "properties": {
-                "publicIPAllocationMethod": "Dynamic"
-              },
-              "sku": {
-                "name": "Basic"
-              }
-            },
-            {
-              "type": "Microsoft.Compute/disks",
-              "apiVersion": "2020-12-01",
-              "name": "[format('dfmdf-{0}_DataDisk', parameters('randomString'))]",
-              "location": "[parameters('location')]",
-              "sku": {
-                "name": "Premium_LRS"
-              },
-              "properties": {
-                "diskSizeGB": 8,
-                "creationData": {
-                  "createOption": "Empty"
-                }
-              }
-            },
-            {
-              "type": "Microsoft.Compute/virtualMachines",
-              "apiVersion": "2021-03-01",
-              "name": "[variables('sqlVirtualMachineName')]",
-              "location": "[parameters('location')]",
-              "properties": {
-                "hardwareProfile": {
-                  "vmSize": "Standard_D2ads_v5"
-                },
-                "storageProfile": {
-                  "osDisk": {
-                    "createOption": "FromImage",
-                    "managedDisk": {
-                      "storageAccountType": "StandardSSD_LRS"
-                    }
-                  },
-                  "imageReference": {
-                    "publisher": "microsoftsqlserver",
-                    "offer": "sql2019-ws2019",
-                    "sku": "sqldev",
-                    "version": "latest"
-                  },
-                  "dataDisks": [
-                    {
-                      "lun": 0,
-                      "createOption": "Attach",
-                      "caching": "ReadOnly",
-                      "diskSizeGB": 8,
-                      "managedDisk": {
-                        "id": "[resourceId('Microsoft.Compute/disks', format('dfmdf-{0}_DataDisk', parameters('randomString')))]",
-                        "storageAccountType": "StandardSSD_LRS"
-                      },
-                      "writeAcceleratorEnabled": false
-                    }
-                  ]
-                },
-                "networkProfile": {
-                  "networkInterfaces": [
-                    {
-                      "id": "[resourceId('Microsoft.Network/networkInterfaces', format('dfmdf-{0}-ni', parameters('randomString')))]"
-                    }
-                  ]
-                },
-                "osProfile": {
-                  "computerName": "[variables('virtualMachineComputerName')]",
-                  "adminUsername": "[variables('adminUsername')]",
-                  "adminPassword": "[variables('adminPassword')]",
-                  "windowsConfiguration": {
-                    "enableAutomaticUpdates": true,
-                    "provisionVMAgent": true,
-                    "patchSettings": {
-                      "enableHotpatching": false,
-                      "patchMode": "AutomaticByOS"
-                    }
-                  }
-                }
-              },
-              "dependsOn": [
-                "[resourceId('Microsoft.Compute/disks', format('dfmdf-{0}_DataDisk', parameters('randomString')))]",
-                "[resourceId('Microsoft.Network/networkInterfaces', format('dfmdf-{0}-ni', parameters('randomString')))]"
-              ]
-            },
-            {
-              "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
-              "apiVersion": "2017-03-01-preview",
-              "name": "[variables('sqlVirtualMachineName')]",
-              "location": "[parameters('location')]",
-              "properties": {
-                "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines', variables('sqlVirtualMachineName'))]",
-                "sqlManagement": "Full",
-                "sqlServerLicenseType": "PAYG",
-                "autoPatchingSettings": {
-                  "enable": true,
-                  "dayOfWeek": "Sunday",
-                  "maintenanceWindowStartingHour": 2,
-                  "maintenanceWindowDuration": 60
-                },
-                "keyVaultCredentialSettings": {
-                  "enable": false,
-                  "credentialName": ""
-                },
-                "storageConfigurationSettings": {
-                  "diskConfigurationType": "NEW",
-                  "storageWorkloadType": "GENERAL",
-                  "sqlDataSettings": {
-                    "luns": [
-                      0
-                    ],
-                    "defaultFilePath": "F:\\data"
-                  },
-                  "sqlLogSettings": {
-                    "luns": [
-                      0
-                    ],
-                    "defaultFilePath": "F:\\log"
-                  },
-                  "sqlTempDbSettings": {
-                    "defaultFilePath": "F:\\tempDb",
-                    "luns": [
-                      0
-                    ]
-                  }
-                },
-                "serverConfigurationsManagementSettings": {
-                  "sqlConnectivityUpdateSettings": {
-                    "connectivityType": "PRIVATE",
-                    "port": 1433,
-                    "sqlAuthUpdateUserName": "",
-                    "sqlAuthUpdatePassword": ""
-                  },
-                  "additionalFeaturesServerConfigurations": {
-                    "isRServicesEnabled": false
-                  }
-                }
-              },
-              "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines', variables('sqlVirtualMachineName'))]"
-              ]
-            }
-          ],
-          "outputs": {
-            "SQLVMadminUsername": {
-              "type": "string",
-              "value": "[variables('adminUsername')]"
-            },
-            "SQLVMadminPassword": {
-              "type": "string",
-              "value": "[variables('adminPassword')]"
-            }
-          }
-        }
+        "principalId": "[parameters('principalId')]",
+        "roleDefinitionId": "[variables('role').Contributor]",
+        "principalType": "User"
       }
     }
   ]

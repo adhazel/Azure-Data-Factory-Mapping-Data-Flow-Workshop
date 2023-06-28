@@ -71,9 +71,8 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
     The below Azure resources will be included in the deployment:
     - Azure Data Factory
-    - Role assignment granting the participant resource group contributor access
-    - Role assignment granting the participant Storage Blob Data Contributor access to the Storage Accont for data files
-    - Role assignment granting the Azure Data Factory permission to the Storage Account for data files
+    - Role assignment granting the participant resource group contributor access and Storage Blob Data Contributor access
+    - Role assignment granting the Azure Data Factory resource group contributor and Storage Blob Data Contributor access
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
