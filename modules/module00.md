@@ -26,11 +26,13 @@ In order to follow along with the lab exercises, you need to provision a set of 
   * Microsoft.Synapse
   * Microsoft.Insights
     > **Warning**  If you are using an **Azure Pass promo code**, the following resource providers - `Microsoft.Storage`, `Microsoft.EventHub`, and `Microsoft.Synapse` are not registered by default. Follow the instructions on [how to register a resource provider](./providers.md) before proceeding with the lab environment deployment below.
-* Owner permissions within a Resource Group to create resources and manage role assignments.
+
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
 ## :gear: One Time Lab Environment Setup
+
+The below instructions require resource group owner role and will take 10 minutes to complete with the appropriate access.
 
   > **Warning**  Deployed assets will include allow Azure and allow all firewall rules for training purposes only. Use a testing environment for training. Consult appropriate networking and security teams before production implementation.
 
@@ -65,6 +67,8 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 ## :gear: Per Participant Lab Environment Setup
 
+The below instructions require resource group owner role and will take 10 minutes to complete with the appropriate access.
+
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeployadf.json)
@@ -73,6 +77,22 @@ In order to follow along with the lab exercises, you need to provision a set of 
     - Azure Data Factory
     - Role assignment granting the participant resource group contributor access and Storage Blob Data Contributor access
     - Role assignment granting the Azure Data Factory resource group contributor and Storage Blob Data Contributor access
+
+<div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
+
+## :gear: Optional SAP Test Environment Setup
+
+The below instructions require subscription-level owner role and will take 3-4 hours to complete with the appropriate access.
+
+1. Get an SAP user number (SUSER) and password to be used to access the instances in SAP CAL. SAP CAL is a 30-day trial SAP system after which a valid license needs to be deployed. Generally, SUSERs are managed by a local SAP Basis Team. 
+
+2. Go to the GitHub repository [MCW-SAP-plus-extend-and-innovate-with-Data-and-AI]("https://github.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/blob/main/Hands-on lab/Before the HOL - SAP plus extend and innovate with Data and AI.md#task-2-create-an-sap-cloud-appliance").
+
+3. Navigate to [./Hands-on lab/Before the HOL – SAP plus extend and innovate with Data and AI.md]("https://github.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/blob/main/Hands-on lab/Before the HOL - SAP plus extend and innovate with Data and AI.md#task-2-create-an-sap-cloud-appliance") file and complete only the below sections to ensure you have an SAP test environment ready for the event.
+
+  a. Task 2: Create an SAP Cloud Appliance 
+  b. Task 3: Deploy the Azure Resources
+
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
