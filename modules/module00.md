@@ -9,7 +9,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 | #  | Jump To |
 | --- | --- |
 | 1 | [Prerequisites](#thinking-prerequisites) |
-| 2 | [Lab Environment Setup (One Time)](#gear-lab-environment-setup-one-time) |
+| 2 | [Lab Environment Setup](#gear-lab-environment-setup-one-time) |
 | 3 | [Data Factory Setup (Per Participant)](#gear-data-factory-setup-per-participant) |
 | 4 | [Optional SAP Test Environment Setup](#gear-optional-sap-test-environment-setup) |
 | 5 | [Stage Sample Data](#gear-stage-sample-data) |
@@ -31,7 +31,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
-## :gear: Lab Environment Setup (One Time)
+## :gear: Lab Environment Setup
 
 The below instructions require resource group owner role and will take 10 minutes to complete with the appropriate access.
 
