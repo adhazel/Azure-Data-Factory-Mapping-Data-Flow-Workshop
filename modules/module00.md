@@ -70,6 +70,36 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 </details>
 
+## :test_tube: Stage Sample Data
+
+<details>
+
+Sample data is used throughout the modules. Sample data is listed by module below. Follow the instructions to stage it before the event.
+
+1. [Create Integration Runtime](./modules/module01.md)
+
+No sample data 
+
+# [Create Linked Services](./modules/module02.md)
+
+# [Two Ways to do a Basic Copy](./modules/module03.md)
+
+
+
+4. [Join Placeholder](./modules/module04.md)
+5. [Slowly Changing Dimensions](./modules/module05.md)
+6. Change Data Capture Storage to SQL (coming soon)
+7. [Medallion Architecture: Bronze Layer](./modules/module07.md)
+8. [Medallion Architecture: Silver Layer](./modules/module08.md)
+9. [Medallion Architecture: Gold Layer](./modules/module09.md)
+10. [Medallion Architecture: Consumption Layer](./modules/module10.md)
+11. [Troubleshooting](./modules/module11.md)
+12. [Best Practices](./modules/module12.md)
+
+
+</details>
+
+
 ## :tada: Summary
 
 By successfully deploying the lab template, you have the Azure resources needed to follow along with the learning exercises.
