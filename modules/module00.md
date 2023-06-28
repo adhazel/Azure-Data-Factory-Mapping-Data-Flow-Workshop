@@ -25,7 +25,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 </details>
 
-## :test_tube: One Time Lab Environment Setup
+## :gear: One Time Lab Environment Setup
 
 <details>
 
@@ -60,7 +60,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 </details>
 
-## :test_tube: Per Participant Lab Environment Setup
+## :gear: Per Participant Lab Environment Setup
 
 <details>
 
@@ -70,9 +70,9 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 </details>
 
-## :test_tube: Stage Sample Data
+## :gear: Stage Sample Data
 
-<span style="color: green"><details></span>
+<details>
 
 Sample data is used throughout the modules. Sample data is listed by module below. Follow the instructions to stage it before the event.
 
