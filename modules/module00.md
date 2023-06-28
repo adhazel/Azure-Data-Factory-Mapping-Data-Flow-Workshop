@@ -31,7 +31,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
-## :gear: One Time Lab Environment Setup
+## :gear:  Lab Environment Setup (One Time)
 
 The below instructions require resource group owner role and will take 10 minutes to complete with the appropriate access.
 
