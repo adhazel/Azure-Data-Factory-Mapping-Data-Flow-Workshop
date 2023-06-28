@@ -22,11 +22,21 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
     > :warning: If you are using an **Azure Pass promo code**, the following resource providers - `Microsoft.Storage`, `Microsoft.EventHub`, and `Microsoft.Synapse` are not registered by default. Follow the instructions on [how to register a resource provider](./providers.md) before proceeding with the lab environment deployment below.
 
-## :test_tube: Lab Environment Setup
+## :test_tube: One Time Lab Environment Setup
 
 1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeploy.json)
+
+    This deployment will do the following:
+    
+    1. Deploy an Azure SQL Server and Database (with an open firewall for training purposes only)
+    2. Deploy an Azure Storage account and container
+    3. Create a Synapse workspace and Synapse Dedicated Pool 
+
+| :warning:  Deployed assets will include allow Azure and allow all firewall rules for training purposes only   |
+|-----------------------------------------|
+
 
 2. Beneath the **Resource group** field, click **Create new** and provide a unique name (e.g. `adfmdflab-rg`), select a [valid location](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all) (e.g. `West US 3`), and then click **Review + create**.
 
@@ -43,6 +53,12 @@ In order to follow along with the lab exercises, you need to provision a set of 
 5. If successful, you should see the resource group resources, similar to the screenshot below.
 
     ![Resource Group](../images/module00/deployed_resources.png)
+
+## :test_tube: Per Participant Lab Environment Setup
+
+1. Right-click or `Ctrl + click` the button below to open the Azure Portal in a new window.
+
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fadhazel%2FAzure-Data-Factory-Mapping-Data-Flow-Workshop%2Fmain%2Fenvironment%2Fazuredeploy.json)
 
 
 ## :tada: Summary
