@@ -83,7 +83,7 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 Sample data is used throughout the modules. Sample data is listed by module below. Follow the instructions to stage it before the event.
 
-### Module 3 [Two Ways to do a Basic Copy](./modules/module03.md) Sample Data 
+### Stage Module 3 [Two Ways to do a Basic Copy](./modules/module03.md) Sample Data 
 
 The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This file needs to be in the Azure Storage Account created for this lab.
 
@@ -113,16 +113,16 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/create_publish_directories.png" alt="Create publish directories" /> </kbd>
 
-### Module 4 [Join Placeholder](./modules/module04.md) Sample Data 
+### Stage Module 4 [Join Placeholder](./modules/module04.md) Sample Data 
 
 Instructions here
 
 
-### Module 5 [Slowly Changing Dimensions](./modules/module05.md) Sample Data 
+### Stage Module 5 [Slowly Changing Dimensions](./modules/module05.md) Sample Data 
 
 Instructions here
 
-### Module 7 [Medallion Architecture: Bronze Layer](./modules/module07.md) Sample Data 
+### Stage Module 7 [Medallion Architecture: Bronze Layer](./modules/module07.md) Sample Data 
 
 Instructions here
 

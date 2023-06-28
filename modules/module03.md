@@ -19,7 +19,7 @@ A basic data movement can be accomplished two ways in Azure Data Factory. This m
 
 ## 1. Stage data in the data lake
 
-Data was staged as part of the setup for this lab. See <a href="../modules/module00.md/#module-3-two-ways-to-do-a-basic-copy-sample-data">staging instructions</a>.
+Data was staged as part of the setup for this lab. See <a href="../modules/module00.md/#stage-module-3-two-ways-to-do-a-basic-copy-sample-data">staging instructions</a>.
 
 <div align="right"><a href="#module-03---two-ways-to-do-a-basic-copy">↥ back to top</a></div>
 
