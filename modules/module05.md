@@ -38,11 +38,21 @@ For example, Adventure Works assigns salespeople to a sales region. When a sales
 <kbd> <img src="../images/module05/slowly-changing-dimensions-type-2-change.png" alt="example of SCD Type 2" /> </kbd>
 
 ## 2. Prepare the dataset
-if you have have successfully completed the [module 2](../modules/module02.md), you should already have the Azure Data Factory with the read and write access granted to the Azure SQL DB.
+if you have successfully completed the [module 2](../modules/module02.md), you should already have the Azure Data Factory with the read and write access granted to the Azure SQL DB.
 
-In the Azure SQL DB you will already find a "Adventure Works" database pre-deployed and filled with data ready to be queried (a test query on the [SalesLT].[Customer] table executed in the **Query Editor** showed below).
+In the Azure SQL DB you will already find an "Adventure Works" database pre-deployed and filled with data ready to be queried (a test query on the [SalesLT].[Customer] table executed in the **Query Editor** showed below).
 
 <kbd> <img src="../images/module05/test-query-azuresqldb.png" alt="example of SCD Type 2" /> </kbd>
 
-This database represents a typical OLTP (Online Transactional Processing) database, which is optimized for fast data insertion and retrieval. For analytical and reporting purposes it is always recommended to have a OLAP (Online Analytical Processing) database (which usually forms into a Datawarehouse) in place, that offloads the analytical workloads on the same data sources (by synching and persisting required data from the OLTP databases) and optimizes the query performance for **read** queries on large amount of rows. 
+This database represents a typical OLTP (Online Transactional Processing) database, which is optimized for fast data insertion and retrieval. For analytical and reporting purposes it is always recommended to have a OLAP (Online Analytical Processing) database (which usually forms into a Datawarehouse) in place, that offloads the analytical workloads on the same data sources (by syncing and persisting required data from the OLTP databases) and optimizes the query performance for **read** queries on large amount of rows. 
+
 In this module we will use the [SalesLT].[Customer] table as source data for the SCD Type 1 and [SalesLT].[Product] table as source data for SCD Type 2 transformation.
+
+## 3. Slowly-Changing-Dimension 1
+
+adfasdfasdf
+
+
+## 4. Slowly-Changing-Dimension 2
+
+asdfasdfasdf
