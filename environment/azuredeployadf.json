@@ -53,13 +53,50 @@
       },
       "identity": {
         "type": "SystemAssigned"
-      }
+      },
+      "resources": [
+          {
+              "name": "[concat(format('dfmdf-adf-{0}', parameters('customUserDesignation')), '/default')]",
+              "type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
+              "apiVersion": "2018-06-01",
+              "properties": {},
+              "dependsOn": [
+                  "[concat('Microsoft.DataFactory/factories/', format('dfmdf-adf-{0}', parameters('customUserDesignation')))]"
+              ]
+          },
+          {
+              "name": "[concat(format('dfmdf-adf-{0}', parameters('customUserDesignation')), '/AutoResolveIntegrationRuntime')]",
+              "type": "Microsoft.DataFactory/factories/integrationRuntimes",
+              "apiVersion": "2018-06-01",
+              "properties": {
+                  "type": "Managed",
+                  "managedVirtualNetwork": {
+                      "referenceName": "default",
+                      "type": "ManagedVirtualNetworkReference"
+                  },
+                  "typeProperties": {
+                      "computeProperties": {
+                          "location": "AutoResolve",
+                          "dataFlowProperties": {
+                              "computeType": "General",
+                              "coreCount": 8,
+                              "timeToLive": 0
+                          }
+                      }
+                  }
+              },
+              "dependsOn": [
+                  "[concat('Microsoft.DataFactory/factories/', format('dfmdf-adf-{0}', parameters('customUserDesignation')))]",
+                  "[concat('Microsoft.DataFactory/factories/', format('dfmdf-adf-{0}', parameters('customUserDesignation')), '/managedVirtualNetworks/default')]"
+              ]
+          }
+      ]
     }, 
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-08-01-preview",
       "scope": "[format('Microsoft.Storage/storageAccounts/{0}', parameters('dfmdf_data_adls_name'))]",
-      "name": "[guid(parameters('principalId'), 'datastoragedatacontributor')]",
+      "name": "[guid(resourceGroup().id, parameters('principalId'), 'DFLab_adf_store_contrib')]",
       "properties": {
         "principalId": "[reference(format('dfmdf-adf-{0}', parameters('customUserDesignation')), '2018-06-01', 'full').identity.principalId]",
         "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
@@ -72,7 +109,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-08-01-preview",
-      "name": "[guid(format('dfmdf-adf-{0}', parameters('customUserDesignation')), 'adfrgcontributor')]",
+      "name": "[guid(resourceGroup().id,format('dfmdf-adf-{0}', parameters('customUserDesignation')), 'DFLab_adf_rg_contrib')]",
       "properties": {
         "principalId": "[reference(format('dfmdf-adf-{0}', parameters('customUserDesignation')), '2018-06-01', 'full').identity.principalId]",
         "roleDefinitionId": "[variables('role').Contributor]",
@@ -86,7 +123,7 @@
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-08-01-preview",
       "scope": "[format('Microsoft.Storage/storageAccounts/{0}', parameters('dfmdf_data_adls_name'))]",
-      "name": "[guid(parameters('principalId'), 'userdatastoragedatacontributor')]",
+      "name": "[guid(resourceGroup().id,parameters('principalId'), 'DFLab_user_store_contrib')]",
       "properties": {
         "principalId": "[parameters('principalId')]",
         "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
@@ -96,7 +133,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-08-01-preview",
-      "name": "[guid(parameters('principalId'), 'rgcontributor')]",
+      "name": "[guid(resourceGroup().id,parameters('principalId'), 'DFLab_user_rg_contrib')]",
       "properties": {
         "principalId": "[parameters('principalId')]",
         "roleDefinitionId": "[variables('role').Contributor]",

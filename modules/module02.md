@@ -65,7 +65,12 @@ This linked service should be used to connect to the Azure Data Lake Storage Acc
 
 2. Select **Azure Data Lake Storage Gen 2** and click **Continue**.
 
-3. Enter the following values. Then, click **Test connection**. You should see a Connection successful message. Click **Create**.
+3. With `AutoResolveIntegrationRuntime` selected in **Connect via integration runtime**, if the error *Interactive authoring disabled* appears, click the edit icon. When the **Integration runtime** sidebar appears, go to the **Virtual network** tab and select the **Enable** option for **Interactive authoring**. Then, click **Apply**.
+
+   <kbd> <img src="../images/module02/auto_resolve_interactive_disabled.png" alt="default adls ir interactive error" /> </kbd>
+   <kbd> <img src="../images/module02/enable_interactive.png" alt="default adls ir interactive enable" /> </kbd>
+
+3. Enter the following values. If the **Test connection** button is not available (grey), confirm interactive authoring on the selected integration runtime is enabled. Then, click **Test connection**. You should see a *Connection successful* message. Click **Create**.
 
     | Attribute  | Example Value |
     | --- | --- |
