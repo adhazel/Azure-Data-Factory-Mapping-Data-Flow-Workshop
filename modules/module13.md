@@ -321,14 +321,8 @@ KeyColums : select **SalesDocument**, this is the key column of the SalesOrderHe
 
 <div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
 
-## 3. Ingest Sales order Header data from SAP to Azure Data Lake
-
-The CDS view Sales order Header information residing in S/4HANA, is exposed with OData services. The self-hosted integration runtime installed on the SAP virtual machine enables connectivity between Azure Data Factory and S/4HANA, this will allow for local web calls to take place to the OData endpoints to retrieve sales data.
-
-<div align="right"><a href="#module-13---sap-cdc-connector">↥ back to top</a></div>
-
 ## :tada: Summary
 
-TODO
+The exercise of this module is completed. You have performed a simple data extraction from SAP S/4HANA into ADF using the SAP-CDC Connector with a few data transformations included. 
 
 
