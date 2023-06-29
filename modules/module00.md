@@ -116,7 +116,7 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module03/create_inbound_container.png" alt="Create inbound Container" /> </kbd>
 
-4. Click the container name to open the container. Then, click **+ Add Directory**. Add a directory Name `nyx_taxi_sample' and click **Save** to create the directory.
+4. Click the container name to open the container. Then, click **+ Add Directory**. Add a directory **Name** `nyx_taxi_sample` and click **Save** to create the directory.
 
    <kbd> <img src="../images/module03/create_nyx_taxi_sample_dir.png" alt="Create nyx tax dir" /> </kbd>
 
