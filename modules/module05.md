@@ -17,8 +17,8 @@ Based on how to deal with a slowly dimensional data change in different scenario
 | #  | Section |
 | --- | --- |
 | 1 | [Introduction SCD Type 1 and SCD Type 2](#1-introduction-scd-type-1-and-scd-type-2) |
-| 2 | [Set up the linked service and dataset](#2-set-up-the-linked-service-and-dataset) |
-| 3 | [Implement SCD Type 1 transformation with MDF](#3-implement-sdc-type-1-transformation-with-MDF) |
+| 2 | [Prepare the dataset](#2-prepare-the-dataset) |
+| 3 | [Implement SCD Type 1 transformation with MDF](#3-Implement-SCD-Type 1-transformation-with-MDF) |
 | 4 | [Implement SCD Type 2 transformation with MDF](#4-implement-sdc-type-2-transformation-with-MDF) |
 
 <div align="right"><a href="#module-05---slowly-changing-dimensions">↥ back to top</a></div>
@@ -142,7 +142,7 @@ Click **Publish all** to save the changes.
 
 5. Now, we have prepared our source and target as well as a dataset representing Azure SQL objects, we are ready to build some data flows to load data from source to target based on different business scenarios.
 
-## 3. Slowly-Changing-Dimension 1
+## 3. Implement SCD Type 1 transformation with MDF
 
 As mentioned before, SCD type 1 comes into play when the change of the attribute doesn't need to be tracked e.g. phone number of a customer, because we always want to have the up-to-date phone number to contact the customer with. Let's simulate this case.
 
