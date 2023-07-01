@@ -13,9 +13,9 @@ A basic data movement can be accomplished two ways in Azure Data Factory. This m
 
 | #  | Section |
 | --- | --- |
-| 1 | [Stage data in the data lake](#1stage-data-in-the-data-lake) |
-| 2 | [Pipeline copy](#2pipeline-copy) |
-| 3 | [Mapping data flows copy](#3data-flows-copy) |
+| 1 | [Stage data in the data lake](#1-stage-data-in-the-data-lake) |
+| 2 | [Pipeline copy](#2-pipeline-copy) |
+| 3 | [Mapping data flows copy](#3-data-flows-copy) |
 
 ## 1. Stage data in the data lake
 

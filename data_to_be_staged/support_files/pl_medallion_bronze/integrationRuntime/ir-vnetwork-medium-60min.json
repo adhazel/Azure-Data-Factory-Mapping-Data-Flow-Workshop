@@ -1,0 +1,26 @@
+{
+    "name": "ir-vnetwork-medium-60min",
+    "properties": {
+        "type": "Managed",
+        "description": "An integration runtime with managed virtual network enabled and a 60 minute cluster time to live. Cluster size is set to medium.",
+        "typeProperties": {
+            "computeProperties": {
+                "location": "West US 3",
+                "dataFlowProperties": {
+                    "computeType": "General",
+                    "coreCount": 16,
+                    "timeToLive": 10,
+                    "cleanup": false,
+                    "customProperties": []
+                },
+                "pipelineExternalComputeScaleProperties": {
+                    "timeToLive": 60
+                }
+            }
+        },
+        "managedVirtualNetwork": {
+            "type": "ManagedVirtualNetworkReference",
+            "referenceName": "default"
+        }
+    }
+}

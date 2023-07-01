@@ -90,8 +90,8 @@ The below instructions require subscription-level owner role and will take 3-4 h
 2. Go to the GitHub repository "MCW-SAP-plus-extend-and-innovate-with-Data-and-AI" or click the link in the next step :smile:.
 
 3. Navigate to [./Hands-on lab/Before the HOL – SAP plus extend and innovate with Data and AI.md](https://github.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/blob/main/Hands-on%20lab/Before%20the%20HOL%20-%20SAP%20plus%20extend%20and%20innovate%20with%20Data%20and%20AI.md#task-2-create-an-sap-cloud-appliance) file and complete only the below sections to ensure you have an SAP test environment ready for the event.
-    - Task 2: Create an SAP Cloud Appliance
-    - Task 3: Deploy the Azure Resources
+    - Task 3: Deploy the Azure Resources (Skip step 3 as a dedicated pool and storage account are already part of the lab environment.)
+    - Task 4: Prepare sales data in SAP
 
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
@@ -110,27 +110,27 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
 2. From the Azure Resource Group overview page, find and click the Azure Storage Account lab resource named `dfmdf< Random string for your lab environment resources >adls` to open the storage account.
 
-   <kbd> <img src="../images/module03/open_storage_account.png" alt="Open ADLS" /> </kbd>
+    <kbd> <img src="../images/module00/open_storage_account.png" alt="Open ADLS" /> </kbd>
 
-3. Within the Azure Storage Account, open the **Containers** page from within the **Data storage** section of the left pane. Then, click the **+ Container** button and add an `inbound` container.
+3. Within the Azure Storage Account, open the **Containers** page from within the **Data storage** section of the left pane. Then, click the **+ Container** button and add an `inbound` container if it does not already exist.
 
-   <kbd> <img src="../images/module03/create_inbound_container.png" alt="Create inbound Container" /> </kbd>
+    <kbd> <img src="../images/module00/create_inbound_container.png" alt="Create inbound Container" /> </kbd>
 
 4. Click the container name to open the container. Then, click **+ Add Directory**. Add a directory **Name** `nyx_taxi_sample` and click **Save** to create the directory.
 
-   <kbd> <img src="../images/module03/create_nyx_taxi_sample_dir.png" alt="Create nyx tax dir" /> </kbd>
+    <kbd> <img src="../images/module00/create_nyx_taxi_sample_dir.png" alt="Create nyx tax dir" /> </kbd>
 
 5. Click the directory name to open the directoy. Then, click the **Upload** button and drag and drop the `NYCTripSmall.parquet` file you downloaded in step 1 into the **Upload blob** drag and drop area. Finally, click **Upload**.
 
-   <kbd> <img src="../images/module03/uploadNYCTripSmall.png" alt="Upload nyx taxi data" /> </kbd>
+    <kbd> <img src="../images/module00/uploadNYCTripSmall.png" alt="Upload nyx taxi data" /> </kbd>
 
 6. Within the Azure Storage Account, open the **Containers** page from within the **Data storage** section of the left pane. Then, click the **+ Container** button and add an `publish` container.
 
-   <kbd> <img src="../images/module03/create_publish_container.png" alt="Create publish Container" /> </kbd>
+    <kbd> <img src="../images/module00/create_publish_container.png" alt="Create publish Container" /> </kbd>
 
 7. Click the `publish` container name to open the container. Then, click **+ Add Directory**. Add a directory named `nyx_taxi_sample_pipeline` and click **Save** and add a second directory named `nyx_taxi_sample_dataflow` and click **Save**.
 
-   <kbd> <img src="../images/module03/create_publish_directories.png" alt="Create publish directories" /> </kbd>
+   <kbd> <img src="../images/module00/create_publish_directories.png" alt="Create publish directories" /> </kbd>
 
 ### Stage Module 4 [Join Placeholder](./modules/module04.md) Sample Data 
 
@@ -141,9 +141,40 @@ Instructions here
 
 Instructions here
 
-### Stage Module 7 [Medallion Architecture: Bronze Layer](./modules/module07.md) Sample Data 
+### Stage Module 7 [Medallion Architecture: Bronze Layer](./modules/module07.md) Sample Data
 
-Instructions here
+The pipelines in this module use 2 Excel files under 50 KB file named *Employees.xlsx* and *Regions.xlsx*. This files needs to be in the Azure Storage Account created for this lab.
+
+1. Download the below files from this GitHub repository.
+  - [../data_to_be_staged/adls/source/employees/Employees.xlsx](../data_to_be_staged/adls/source/employees/Employees.xlsx)
+- [../data_to_be_staged/adls/source/employees/Regions.xlsx](../data_to_be_staged/adls/source/employees/Regions.xlsx)
+
+1. From the Azure Resource Group overview page, find and click the Azure Storage Account lab resource named `dfmdf< Random string for your lab environment resources >adls` to open the storage account.
+
+    <kbd> <img src="../images/module00/open_storage_account.png" alt="Open ADLS" /> </kbd>
+
+1. Within the Azure Storage Account, open the **Containers** page from within the **Data storage** section of the left pane. Then, click the **+ Container** button and add the 3 containers below if they does not already exist.
+    - inbound
+    - publish
+    - source 
+    
+    <kbd> <img src="../images/module00/create_source_container.png" alt="Create source container" /> </kbd>
+
+1. Click the container name to open the container. Then, click **+ Add Directory**. Add a directory **Name** `employees` and click **Save** to create the directory.
+
+1. To add a directory, click the container name, then, click **+ Add Directory** and **Save**. Ensure the following directories exist: 
+    - `source/employees`
+    - `inbound/employees_bronze`
+    - `inbound/employees_silver`
+    - `inbound/employees_silver_errors`
+    - `publish/employees_gold_general`
+    - `publish/employees_gold_confidential`
+    - `publish/employees_gold_errors`
+    - `publish/employees_project_a`
+
+1. Navigate to the `source/employees` directory. Then, click the **Upload** button and drag and drop the `Employees.xlsx` and `Regions.xlsx` files you downloaded in step 1 into the **Upload blob** drag and drop area. Finally, click **Upload**.
+
+    <kbd> <img src="../images/module00/mod7_upload_employees.png" alt="Upload employee data" /> </kbd>
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
