@@ -18,8 +18,8 @@ Based on how to deal with a slowly dimensional data change in different scenario
 | --- | --- |
 | 1 | [Introduction SCD Type 1 and SCD Type 2](#1-introduction-scd-type-1-and-scd-type-2) |
 | 2 | [Prepare the dataset](#2-prepare-the-dataset) |
-| 3 | [Implement SCD Type 1 transformation with MDF](#3-Implement-SCD-Type 1-transformation-with-MDF) |
-| 4 | [Implement SCD Type 2 transformation with MDF](#4-implement-sdc-type-2-transformation-with-MDF) |
+| 3 | [Implement SCD Type 1 transformation with MDF](#3-implement-scd-type-1-transformation-with-mdf) |
+| 4 | [Implement SCD Type 2 transformation with MDF](#4-implement-scd-type-2-transformation-with-mdf) |
 
 <div align="right"><a href="#module-05---slowly-changing-dimensions">↥ back to top</a></div>
 
@@ -36,6 +36,8 @@ A **SCD Type 2** supports versioning of dimension members. Often the source syst
 For example, Adventure Works assigns salespeople to a sales region. When a salesperson relocates region, a new version of the salesperson must be created to ensure that historical facts remain associated with the former region. To support accurate historic analysis of sales by salesperson, the dimension table must store versions of salespeople and their associated region(s). The table should also include start and end date values to define the time validity. Current versions may define an empty end date (or 12/31/9999), which indicates that the row is the current version. The table must also define a surrogate key because the business key (in this instance, employee ID) won't be unique.
 
 <kbd> <img src="../images/module05/slowly-changing-dimensions-type-2-change.png" alt="example of SCD Type 2" /> </kbd>
+
+<div align="right"><a href="#module-05---slowly-changing-dimensions">↥ back to top</a></div>
 
 ## 2. Prepare the dataset
 if you have successfully completed the [module 2](../modules/module02.md), you should already have the Azure Data Factory with the read and write access granted to the Azure SQL DB.
@@ -142,6 +144,8 @@ Click **Publish all** to save the changes.
 
 5. Now, we have prepared our source and target as well as a dataset representing Azure SQL objects, we are ready to build some data flows to load data from source to target based on different business scenarios.
 
+<div align="right"><a href="#module-05---slowly-changing-dimensions">↥ back to top</a></div>
+
 ## 3. Implement SCD Type 1 transformation with MDF
 
 As mentioned before, SCD type 1 comes into play when the change of the attribute doesn't need to be tracked e.g. phone number of a customer, because we always want to have the up-to-date phone number to contact the customer with. Let's simulate this case.
@@ -211,7 +215,10 @@ and check the target table again you will see that all changes from the source a
 <kbd> <img src="../images/module05/check-target-table-after-second-run-scd1.png"/> </kbd>
 
 With that, our Slowly-Changing-Dimension Type 1 transformation is demonstrated. 
-## 4. Slowly-Changing-Dimension 2
+
+<div align="right"><a href="#module-05---slowly-changing-dimensions">↥ back to top</a></div>
+
+## 4. Implement SCD Type 2 transformation with MDF
 
 As mentioned before, the handling of attribute changes in a dimension table is more complex in SCD Type 2 scenarios than it was the case for SCD Type 1. 
 From the workflow's perspective, we have to do the following steps:
