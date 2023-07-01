@@ -62,6 +62,9 @@ In this module we will use the [SalesLT].[Customer], [SalesLT].[CustomerAddress]
 <kbd> <img src="../images/module05/sqldb-portal-login.png"/> </kbd>
 To create a simple source, let's create a view about customers with the last name **Adams** and some relevant attributes from the **Customer** and **CustomerAddress** table (copy and paste following code block in **Query 1** and hit **Run**):
 ```SQL
+CREATE VIEW [SalesLT].[vCustomerAdams_Source]
+AS 
+
 SELECT 
  C.CustomerID
 ,Title
@@ -77,7 +80,7 @@ JOIN SalesLT.CustomerAddress CA
 ON C.CustomerID = CA.CustomerID
 JOIN SalesLT.Address A
 ON CA.AddressID = A.AddressID
-WHERE LastName = 'Adams'");
+WHERE LastName = 'Adams';
 ```
 <kbd> <img src="../images/module05/create-source-view.png"/> </kbd>
 
@@ -126,7 +129,7 @@ CREATE TABLE [SalesLT].[DimCustomerAdams_SCD2](
 <kbd> <img src="../images/module05/create-scd2table.png"/> </kbd>
 Comparing to the SCD1 table we again added 3 additional columns here:
 
-**IsActive** is a flag column for identifying whether a record is representing the up-to-date information or only for historization purposes. **ValidFrom** and **ValidTo** further elaborates the case when a record is not update, when (from which timestamp to which timestamp) exactily it **was** representing the truth. With this 3 additional columns, the reporting should be able to reflect the truth without losing the historical changes.
+**IsActive** is a flag column for identifying whether a record is representing the up-to-date information or only for historization purposes. **ValidFrom** and **ValidTo** further elaborates the case when a record is not update, when (from which timestamp to which timestamp) exactily it **was** representing the truth. With this 3 additional columns, the reporting logic should be able to reflect the truth without losing the historical changes.
 
 4. As the final step, let's create 3 datasets in Azure Data Factory to represent the source and target tables in Azure SQL DB. 
 
@@ -164,20 +167,22 @@ Unter **Alter row settings**, change the name and give a description as shown be
 
 4. As last step, we add the **Sink** block to the data flow
 <kbd> <img src="../images/module05/add-sink-scd1.png"/> </kbd>
-as before, change the name, description and select **AzureSql** as the dataset. Go to **Debug Settings** and asign the values as shown below to point the generic/dynamic dataset object to our target table [SalesLT].[DimCustomerAdams_SCD1] as target. 
+	as before, change the name, description and select **SQL_Target_SCD1** as the dataset. 
 <kbd> <img src="../images/module05/set-sink-scd1.png"/> </kbd>
-Switch to **Setting** tab, set the **Update method** to **Allow upsert**, select the **Key columns** to **CustomerID**. 
+	Switch to **Setting** tab, set the **Update method** to **Allow upsert**, select the **Key columns** to **CustomerID**. 
 <kbd> <img src="../images/module05/set-sink-Settings-scd1.png"/> </kbd>
-This setting is important as it tells the data flow to decide whether to update or insert based on **CustomerID** column. If any row from the source has unmatched value in **CustomerID** column compare to the target, it will be inserted. If any row from the source has matched value in **CustomerID** column compare to the target, the same row in target will be updated with the row from source for all other columns. 
-Now, switch to **Mapping** tab und uncheck the **Auto mapping** box. In the manual mapping below, delete the **SID_CustomerAdams** row because it is an **identity column**, will increment by 1 automatically for every inserted row. For the last column **LastUpdated** we don´t have any column from source to map with. Since this column should be filled with the timestamp as the row modification happens, we need to add a new column before **Upsert** transformation. 
+	This setting is important as it tells the data flow to decide whether to update or insert based on **CustomerID** column. If any row from the source has unmatched value in **CustomerID** column compare to the target, it will be inserted. If any row from the source has matched value in **CustomerID** column compare to the target, the same row in target will be updated with the row from source for all other columns. 
+
+	Now, switch to **Mapping** tab und uncheck the **Auto mapping** box. In the manual mapping below, delete the **SID_CustomerAdams** row because it is an **identity column**, will increment by 1 automatically for every inserted row. For the last column **LastUpdated** we don´t have any column from source to map with. Since this column should be filled with the timestamp as the row modification happens, we need to add a new column before **Upsert** transformation. 
 <kbd> <img src="../images/module05/set-sink-Mapping-scd1.png"/> </kbd>
-Click on the **+** of the source block to add a **Derived Column** transformation block. 
+	Click on the **+** of the source block to add a **Derived Column** transformation block. 
 <kbd> <img src="../images/module05/add-derived-column-scd1.png"/> </kbd>
-Change the name and description as shown below. Give the name **CurrentTimeStamp** to the new column, for the expression, use the function **currentTimestamp()**
+	Change the name and description as shown below. Give the name **CurrentTimeStamp** to the new column, for the expression, use the function **currentTimestamp()**
 <kbd> <img src="../images/module05/set-derived-column-scd1.png"/> </kbd>
-Click on the **Data preview** and **Refresh** to confirm a new column is added. 
+
+	Click on the **Data preview** and **Refresh** to confirm a new column is added. 
 <kbd> <img src="../images/module05/confirm-derived-column-scd1.png"/> </kbd>
-Go back to the Sink Settings under **Mapping**, we can now map the **CurrentTimeStamp** to **LastUpdated** column. 
+	Go back to the Sink Settings under **Mapping**, we can now map the **CurrentTimeStamp** to **LastUpdated** column. 
 <kbd> <img src="../images/module05/map-derived-column-scd1.png"/> </kbd>
 
 5. Now, it is time to run the data flow. First, let´s confirm the target table is currently empty (go by to **Query editor** in Azure SQL DB and do a quick query): 
@@ -226,7 +231,7 @@ From the workflow's perspective, we have to do the following steps:
 First, check if the incoming data from source contains any new instances of the entity (in our example here: check if there are any new customers based on CustomerID as business key).
 
 Second, from the existing instances of the entity (in our example: existing customers), check if any attributes of each instances has changed compare to the target. 
-- If there is a case, deactivate the row of the target (update the flag column **IsActive** of the target rows to **0** and set the **ValidTo** timestamp to the current moment) and activate the respective row from the source to target window (insert the row to target, set the flag column **IsActive** to **1** and set the **ValidFrom** timestamp to the current moment as well as the **ValidTo** timestamp to a default **infinitive** value.)
+- If there is a case, deactivate the row of the target (update the flag column **IsActive** of the target rows to **0 (false)** and set the **ValidTo** timestamp to the current moment) and activate the respective row from the source to target table (insert the row to target, set the flag column **IsActive** to **1 (true)** and set the **ValidFrom** timestamp to the current moment as well as the **ValidTo** timestamp to a default **infinitive** value.)
 - If there is no such case, do nothing and ignore the rows from source. 
 
 With that recap, let's build the data flow for SCD2.
@@ -234,9 +239,10 @@ With that recap, let's build the data flow for SCD2.
 1. Go to Azure Data Factory studio and create a new **Data Flow** with the name **SCD2**, activate the **Data flow debug** if it is not already the case.
 <kbd> <img src="../images/module05/create-data-flow-scd2.png"/> </kbd>
 
-Add 2 sources: one for our incoming new data from the source table and one for our existing data from the target table in Azure SQL DB. 
+	Add 2 sources: one for our incoming new data from the source table and one for our existing data from the target table in Azure SQL DB (for referencing/lookup). 
 <kbd> <img src="../images/module05/set-2-sources-scd2.png"/> </kbd>
-notice for the existing data as source we used a **Query** input type instead of the default **Table**. Reason is that we want to make sure to only take **active** records into consideration during a lookup. As we have set the column **[SID_CustomerAdams]** as identity column, we don´t have to include it into the query definition. Remember to click the **Import projection** button after type in the following statement into the query field to make it effective (otherwise it uses by default the complete table as in **SELECT * FROM [SalesLT].[DimCustomerAdams_SCD2]**)
+
+	notice for the existing data as source we used a **Query** input type instead of the default **Table**. Reason is that we want to make sure to only take **active** records into consideration during a lookup. As we have set the column **[SID_CustomerAdams]** as identity column, we don´t have to include it into the query definition. Remember to click the **Import projection** button after type in the following statement into the query field to make it effective (otherwise it will use by default the complete table as in **SELECT * FROM [SalesLT].[DimCustomerAdams_SCD2]**)
 
 ```SQL
 SELECT [CustomerID]
@@ -255,41 +261,53 @@ SELECT [CustomerID]
   FROM [SalesLT].[DimCustomerAdams_SCD2]
   WHERE IsActive = 1
 ```
-2. Up next let´s finish preparing the existing data for further lookup. First, let´s use **Derived column** to create a **Hash** column of the attributes column that could change. The purpose of using a hash column here is to easily detect if any of the attributes column has changed when comparing the rows of incoming data and existing data (as long as at least one attributes changed when the business key matches, the hash column will have a different value). 
+2. Up next let´s finish preparing the existing data for further lookup. First, let´s use **Derived column** to create a **Hash** column of the attributes column that could change. The purpose of using a hash column here is to easily detect if any of the attributes column has changed when comparing the rows of incoming data and existing data (as long as at least one attributes changed when the business key matches, the hash column will have a different value). Here we choose the [sha2](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-expressions-usage#sha2) hash method, but feel free to use other available ones (e.g. [sha1](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-expressions-usage#sha1), [md5](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-expressions-usage#md5)).
 <kbd> <img src="../images/module05/set-hash-existing-scd2.png"/> </kbd>
-For easy distinction of incoming rows and existing rows with the same column names, we could add a **Exist** suffix to the column names of the existing data (on business key column and the hash column). To do that, we can use a **select** transformation. Because we used a hash column to represent the changable attributes columns, we don´t need them for further lookups anymore and can delete them in the **select** transformation.
+
+	For easy distinction of incoming rows and existing rows with the same column names, we could add a **_Exist** suffix to the column names of the existing data (on business key column and the hash column). To do that, we can use a **select** transformation. Because we used a hash column to represent the changable attributes columns, we don´t need them for further lookups anymore and can delete them in the **select** transformation.
 <kbd> <img src="../images/module05/rename-existing-columns-scd2.png"/> </kbd>
 
-Up to this point, the existing data for reference (lookup purpose) is prepared. Let´s now build the **incoming new data** route. First, let´s create a **Hash** column here as well (be careful to use the same hash function as before so that these 2 are comparable), in order to compare with the **Hash_Exists** later. 
+3. Up to this point, the existing data for reference (lookup purpose) is prepared. Let´s now build the **incoming new data** stream. First, let´s create a **Hash** column here as well (be careful to use the same hash function as before so that these 2 are comparable), in order to compare with the **Hash_Exists** later. 
 <kbd> <img src="../images/module05/set-hash-new-data-scd2.png"/> </kbd>
-3. next, we need to do a lookup based on the business key column to find which rows are new instances of the entity (in our example, new customers) and which rows are existing ones. A **Lookup** transformation will serve the purpose. 
+
+4. next, we need to do a lookup based on the business key column to find which rows are new instances of the entity (in our example, new customers) and which rows are existing ones. A **Lookup** transformation will serve the purpose. 
 <kbd> <img src="../images/module05/set-lookup-scd2.png"/> </kbd>
-notice the setting on **Match multiple rows**: this indicates that if based on the lookup condition there are multiple rows matched, all of them would be returned. In our case this should never happen because for every CustomerID, there should be only one row that has the attribute **IsActive = 1 (true)**. Although this setting could be useful in the debugging phase where that scenario could come up, so you can identify the problem by searching for duplicated rows based on business key. 
 
-4. Now after the lookup we should be able to divide the incoming rows to 2 streams: new customers and existing customers. By adding a **Conditional split** as next step we can achieve this:
+	notice the setting on **Match multiple rows**: this indicates that if based on the lookup condition there are multiple rows matched, all of them would be returned. In our case this should never happen because for every CustomerID, there should be only one row that has the attribute **IsActive = 1 (true)**. Although this setting could be useful in the debugging phase where that scenario could come up, so you can identify the problem by searching for duplicated rows based on business key. 
+
+5. Now after the lookup we should be able to divide the incoming rows to 2 streams: new customers and existing customers. By adding a **Conditional split** as next step we can achieve this:
 <kbd> <img src="../images/module05/split-new-and-existing-customers-scd2.png"/> </kbd>
-notice here we used the condition **isNull(IsActive)**, alternatively you could also use other **helping columns** like **ValidFrom**,**ValidTo** and **LastUpdated** as well, because **new customers** won´t have whose values with them. 
 
-5. Now these 2 streams need different treatment: new customers should be inserted into the target directly, existing customers needs another **Conditional split** to distinguish between **attributes changed** and **attributes unchanged**.
+	notice here we used the condition **isNull(IsActive)**, alternatively you could also use other **helping columns** like **ValidFrom**,**ValidTo** and **LastUpdated** as well, because **new customers** won´t have whose values with them. 
+
+6. Now these 2 streams need different treatment: new customers should be inserted into the target directly, existing customers needs another **Conditional split** to distinguish between **attributes changed** and **attributes unchanged**.
 Let´s build the stream for **existing customer and attributes changed** first. Adding a new **Conditional split** after the **ExistingRecords** transformation:
 <kbd> <img src="../images/module05/split-changed-and-unchanged-customers-scd2.png"/> </kbd>
-notice here we are spliting the rows based on the hash columns. If we haven´t use the **hashing approach**, we would have put all 8 columns into the condition and concatnate them together, which is hard to maintain. 
-Now, for the rows whose attributes haven´t changed, we do nothing to them and keep the matching rows in existing table untouched. For the rows whose attributes have changed, we insert the them to the target as if they were new customers and update the matching existing rows on the column **IsActive** and **ValidTo** to **deactivate** them. This requires a second branch (like the multicast in SSIS). 
-First, add a **Select** step after the **AttrChanged** like shown below:
+
+	notice here we are spliting the rows based on the hash columns. If we haven´t use the **hashing approach**, we would have put all 8 columns into the condition and concatnate them together, which is hard to maintain. 
+
+	Now, for the rows whose attributes haven´t changed, we do nothing to them and keep the matching rows in existing table untouched. For the rows whose attributes have changed, we insert the them to the target as if they were new customers and update the matching existing rows on the column **IsActive** and **ValidTo** to **deactivate** them. This requires a second branch (like the multicast in SSIS). 
+
+	First, add a **Select** step after the **AttrChanged** like shown below:
 <kbd> <img src="../images/module05/select-existing-customer-for-insert-scd2.png"/> </kbd>
-here we only leave the columns coming from the new data and delete all lookuped columns from existing data. These rows are to be **unioned** with the rows that don´t have a matching **CustomerID** with the existing data. 
-Now we need the second branch for that for the **updating** purpose. 
+
+	here we only leave the columns coming from the new data and delete all lookuped columns from existing data. These rows are to be **unioned** with the rows that don´t have a matching **CustomerID** with the existing data. 
+
+	Now we need the second branch for that for the **updating** purpose. 
 <kbd> <img src="../images/module05/add-new-branch-scd2.png"/> </kbd>
-note that this **New branch** option will not be visible if we haven´t created the **select** transformation for the original branch (it is a feature, not a bug).
-6. Then create a **select** transformation as well and leave only the **CustomerID** columns(**CustomerID** is the key column for update, **IsActive**, **ValidTo** and **LastUpdated** will be created using **Derived Column** in the next step).
+	note that this **New branch** option will not be visible if we haven´t created the **select** transformation for the original branch (it is a feature, not a bug).
+
+7. Then create a **select** transformation as well and leave only the **CustomerID** columns(**CustomerID** is the key column for update, **IsActive**, **ValidTo** and **LastUpdated** will be created using **Derived Column** in the next step).
 <kbd> <img src="../images/module05/select-existing-customer-for-update-scd2.png"/> </kbd>
-now, before we can finally update, we will need to create the values for the 3 **helper columns** mentioned above, a **Derived column** will do the job for us:
+
+	now, before we can finally update, we will need to create the values for the 3 **helper columns** mentioned above, a **Derived column** will do the job for us:
 <kbd> <img src="../images/module05/derive-helper-columns-for-update-scd2.png"/> </kbd>
-notice the expression for **IsActive** is **false()** because the column definition is **bit(boolean)**.
+
+	notice the expression for **IsActive** is **false()** because the column definition is **bit(boolean)**.
 After that, we are allowed to update the sink (with the **Alter Row** inserted upfront):
 <kbd> <img src="../images/module05/set-update-sink-scd2.png"/> </kbd>
 
-7. Finally, we have completely finished the stream about **ExistingRecords** and we can focus on **NewRecords** now. First step would be to **union** all **new customers** with **existing customers with attribute change**:
+8. Finally, we have completely finished the stream about **ExistingRecords** and we can focus on **NewRecords** now. First step would be to **union** all **new customers** with **existing customers with attribute change**:
 <kbd> <img src="../images/module05/set-union-scd2.png"/> </kbd>
 since we still have the **lookuped** columns from the previous step left and won´t need them for inserting into the target table, let´s use **Select** transformation to remove them:
 <kbd> <img src="../images/module05/select-needed-columns-for-insert-scd2.png"/> </kbd>
@@ -298,15 +316,17 @@ Then we need to create the **helper columns** for **New Records** for the target
 notice we set the **ValidTo** column with the date **9999-12-31**, which is a common practise in datawarehouse design to ensure a **infinite validity**.
 Finally, we are to add a **Alter Row** for insert into **Sink**:
 <kbd> <img src="../images/module05/set-insert-sink-scd2.png"/> </kbd>
-8. **Important:** because we are doing inserting and updating to the same table on the same key column **CustomerID**, the order of the sink operation matters: if one existing customer with attribute change is first inserted as new row and the update operation uses the same business key **CustomerID** to update the **helper columns** (ValidTo, IsActive and LastUpdated), we could end up having strange behaviours! So one way to avoid that is to set the **Custom sink ordering**:
+
+9. **Important:** because we are doing inserting and updating to the same table on the same key column **CustomerID**, the order of the sink operation matters: if one existing customer with attribute change is first inserted as new row and the update operation uses the same business key **CustomerID** to update the **helper columns** (ValidTo, IsActive and LastUpdated), we could end up having strange behaviours! So one way to avoid that is to set the **Custom sink ordering**:
 <kbd> <img src="../images/module05/set-custom-sink-ordering-scd2.png"/> </kbd>
 By always let the *InsertSink* operation start only after the *UpdateSink* operation finishs, we can ensure there are no surprises. 
 Now, our complete data flow for SCD Type 2 is finished. You should have a diagram like the following:
 <kbd> <img src="../images/module05/final-diagram-scd2.png"/> </kbd>
 
-9. Let´s recreate the situation as for SCD Type 1 and see the effect of this approach. 
+10. Let´s recreate the situation as for SCD Type 1 and see the effect of this approach. 
 
-Run the following query in **Query Editor** to reset the source to the original state as if nothing has changed there for our SCD Type 1 execution:
+	Run the following query in **Query Editor** to reset the source to the original state as if nothing has changed there for our SCD Type 1 execution:
+
 ```SQL
 UPDATE [SalesLT].[CustomerAddress] SET AddressID = 1069 WHERE CustomerID = '29489' -- manually move Ms. Frances Adams back to Modesto from Phoenix
 DELETE FROM [SalesLT].[CustomerAddress] WHERE CustomerID IN (SELECT CustomerID FROM [SalesLT].[Customer] WHERE CompanyName = 'Contoso')
@@ -319,7 +339,7 @@ Now, execute the data flow within a pipeline:
 <kbd> <img src="../images/module05/run-dataflow-initial-scd2.png"/> </kbd>
 check the result of the initial load in the target table:
 <kbd> <img src="../images/module05/check-target-table-initial-scd2.png"/> </kbd>
-Now, execute the same **manipulation code** again to manually change the source to add 2 **same new customer** and update the **City** of one **existing customer**:
+Now, execute the same **manipulation code** (we used for SCD Type 1 before) again to manually change the source to add 2 **same new customer** and update the **City** of one **existing customer**:
 
 ```SQL
 UPDATE [SalesLT].[CustomerAddress] SET AddressID = 1068 WHERE CustomerID = '29489' -- manually move Ms. Frances Adams from Modesto to Phoenix
@@ -341,16 +361,16 @@ execute the code in **query editor**:
 quickly check the new state of the source data:
 <kbd> <img src="../images/module05/check-source-table-after-manipulation-scd2.png"/> </kbd>
 
-10. Now finally, run the data flow for SCD2 again and see the result (together as comparison with SCD Type 1):
+11. Now finally, run the data flow for SCD2 again and see the result (together as comparison with SCD Type 1):
 <kbd> <img src="../images/module05/final-comparison-scd1-and scd2.png"/> </kbd>
 Clearly you can see the different behaviour of final records by choosing different approach to deal with slowly changing dimention data. 
 
-11. Before you close all the tabs or exit the studio, publish all changes you have made.
+12. Before you close all the tabs or exit the studio, publish all changes you have made.
 <kbd> <img src="../images/module05/publish-all-changes.png"/> </kbd>
 
 ## :tada: Summary
 
-You have now completed this module. You have performed 2 data flows to practise 2 very common Slowly-Changing-Dimensions transformation in datawarehouse scenarios. Depending on the business requirements, choose different approach you learned here. 
+Congratulations! You have make great progress and completed this module now! You have performed 2 data flows to practise 2 very common Slowly-Changing-Dimensions transformation in datawarehouse development scenarios. Depending on the business requirements, choose different approach you learned here. [Learn more](https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing)
 
 [Continue >](../modules/module06.md)
 
