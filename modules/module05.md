@@ -285,22 +285,17 @@ After that, we are allowed to update the sink (with the **Alter Row** inserted u
 7. Finally, we have completely finished the stream about **ExistingRecords** and we can focus on **NewRecords** now. First step would be to **union** all **new customers** with **existing customers with attribute change**:
 <kbd> <img src="../images/module05/set-union-scd2.png"/> </kbd>
 since we still have the **lookuped** columns from the previous step left and won´t need them for inserting into the target table, let´s use **Select** transformation to remove them:
-<kbd> <img src="../images/module05/select-needed-columns-for-insert-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/select-needed-columns-for-insert-scd2.png"/> </kbd>
 Then we need to create the **helper columns** for **New Records** for the target table, again **Derived Column** is our friend here:
-<kbd> <img src="../images/module05/derive-helper-columns-for-insert-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/derive-helper-columns-for-insert-scd2.png"/> </kbd>
 notice we set the **ValidTo** column with the date **9999-12-31**, which is a common practise in datawarehouse design to ensure a **infinite validity**.
 Finally, we are to add a **Alter Row** for insert into **Sink**:
-<kbd> <img src="../images/module05/set-insert-sink-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/set-insert-sink-scd2.png"/> </kbd>
 8. **Important:** because we are doing inserting and updating to the same table on the same key column **CustomerID**, the order of the sink operation matters: if one existing customer with attribute change is first inserted as new row and the update operation uses the same business key **CustomerID** to update the **helper columns** (ValidTo, IsActive and LastUpdated), we could end up having strange behaviours! So one way to avoid that is to set the **Custom sink ordering**:
-<kbd> <img src="../images/module05/set-custom-sink-ordering-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/set-custom-sink-ordering-scd2.png"/> </kbd>
 By always let the *InsertSink* operation start only after the *UpdateSink* operation finishs, we can ensure there are no surprises. 
 Now, our complete data flow for SCD Type 2 is finished. You should have a diagram like the following:
-<kbd> <img src="../images/module05/final-diagram-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/final-diagram-scd2.png"/> </kbd>
 
 9. Let´s recreate the situation as for SCD Type 1 and see the effect of this approach. 
 
@@ -310,17 +305,13 @@ UPDATE [SalesLT].[CustomerAddress] SET AddressID = 1069 WHERE CustomerID = '2948
 DELETE FROM [SalesLT].[CustomerAddress] WHERE CustomerID IN (SELECT CustomerID FROM [SalesLT].[Customer] WHERE CompanyName = 'Contoso')
 DELETE from [SalesLT].[Customer] where CompanyName = 'Contoso'
 ```
-<kbd> <img src="../images/module05/reset-source-for-test-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/reset-source-for-test-scd2.png"/> </kbd>
 test again that the source is the same as it was originally:
-<kbd> <img src="../images/module05/test-source-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/test-source-scd2.png"/> </kbd>
 Now, execute the data flow within a pipeline:
-<kbd> <img src="../images/module05/run-dataflow-initial-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/run-dataflow-initial-scd2.png"/> </kbd>
 check the result of the initial load in the target table:
-<kbd> <img src="../images/module05/check-target-table-initial-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/check-target-table-initial-scd2.png"/> </kbd>
 Now, execute the same **manipulation code** again to manually change the source to add 2 **same new customer** and update the **City** of one **existing customer**:
 
 ```SQL
@@ -338,21 +329,17 @@ VALUES
 ```
 
 execute the code in **query editor**:
-<kbd> <img src="../images/module05/manipulate-source-data-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/manipulate-source-data-scd2.png"/> </kbd>
 
 quickly check the new state of the source data:
-<kbd> <img src="../images/module05/check-source-table-after-manipulation-scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/check-source-table-after-manipulation-scd2.png"/> </kbd>
 
 10. Now finally, run the data flow for SCD2 again and see the result (together as comparison with SCD Type 1):
-<kbd> <img src="../images/module05/final-comparison-scd1-and scd2
-.png"/> </kbd>
+<kbd> <img src="../images/module05/final-comparison-scd1-and scd2.png"/> </kbd>
 Clearly you can see the different behaviour of final records by choosing different approach to deal with slowly changing dimention data. 
 
 11. Before you close all the tabs or exit the studio, publish all changes you have made.
-<kbd> <img src="../images/module05/publish-all-changes
-.png"/> </kbd>
+<kbd> <img src="../images/module05/publish-all-changes.png"/> </kbd>
 
 ## :tada: Summary
 
