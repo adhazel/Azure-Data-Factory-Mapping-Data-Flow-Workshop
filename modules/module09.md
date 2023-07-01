@@ -1,10 +1,23 @@
-# Module ## - Module Title
+# Module 09 - Medallion Architecture: Gold Layer
 
-[< Previous Module](../modules/module##.md) - **[Home](../README.md)** - [Next Module >](../modules/module##.md)
+[< Previous Module](../modules/module08.md) - **[Home](../README.md)** - [Next Module >](../modules/module10.md)
 
-## :loudspeaker: Introduction
+## Introduction
+This module shows what a gold layer within the medallion pattern might look like implemented in Azure Data Factory. The gold layer is often highly refined and aggregated, containing data that powers anlaytics, machine learning, and production applications. In this lab, the gold layer includes the following:
+  - Calculated value(s)
+  - Given that the source includes both general and confidential attributes, the data is sinked twice, once for consumption of general data and once for consumption of confidential data. 
+    - *Sink for general sensitivity*: selected attributes that are confirmed to be available for general use are included using explicit column.
+    - *Sink for confidential sensitivity*: all attributes are passed through using schema drift and auto-mapping.
 
-Introductory text here
+Key capabilities of the gold layer are listed below:
+
+- Represents a highly refined and/or enriched version of the data
+- Acts as re-usable asset for self-service and enterprise applications and data integrations
+- Reduces data duplication across consumption teams and personas when combined with row level security
+- Has lower latency query performance because ...
+    - Most transformations are handled before data is written to the gold layer
+    - Data is read-optimized
+    - Multiple variations of a dataset may be published in the gold layer to support diverse query patterns
 
 ## :bookmark_tabs: Table of Contents
 
