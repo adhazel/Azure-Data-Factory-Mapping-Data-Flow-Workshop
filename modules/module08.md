@@ -344,7 +344,7 @@ Key capabilities of the silver layer are listed below:
     | --- | --- |
     | Output stream name | `addErrorMessage` |
     | Description | `Add assertErrorMessage ` |
-    | Split condition | Column `assertErrorMessage` Expression: `assertErrorMessages()` |
+    | Columns | Column `assertErrorMessage` Expression: `assertErrorMessages()` |
 
 1. On the the **Data preview** tab of the `addErrorMessage` tranformation, click **Refresh**. The refresh should succeed with 2 data errors. 
 
@@ -431,7 +431,7 @@ Once a data flow is developed, you can create the pipline that invokes it.
 
 1. In the factory resources pane, select on the plus icon to open the new resource menu. Select **Pipeline**.
 
-    <kbd> <img src="../images/module07/create_new_pipeline.png" alt="new pipeline" /> </kbd>
+    <kbd> <img src="../images/module08/create_new_pipeline.png" alt="new pipeline" /> </kbd>
 
 1. In the **General** panel under **Properties**, add a **Name** and **Description**.
 
@@ -453,7 +453,7 @@ Once a data flow is developed, you can create the pipline that invokes it.
     | --- | --- |
     | Data flow | `df_medallion_silver` |
     | Run on (Azure IR) | `ir-vnetwork-medium-60min` |
-    |Logging level | ` None ` |
+    | Logging level | ` None ` |
 
 1. From the **Activities** panel, open the **General** accordian and drag the **Get Metadata** activity onto the canvas. Click the *on success* condition (green check) for the `Run silver data flow` activity and connect it to the **Get Metadata** activity. Complete the below attributes:
 
@@ -500,6 +500,15 @@ Once a data flow is developed, you can create the pipline that invokes it.
 1. Review the debug outcomes. In this case, the data flow execution has succeeded; however, because there are error files written and the pipeline is configured to manually throw an error on finding these error files, the overall pipeline debug is failed.
 
     <kbd> <img src="../images/module08/pipeline_debug_succeeds.png" alt="copy sink" /> </kbd>
+
+<div align="right"><a href="#module-08---medallion-architecture-silver-layer">↥ back to top</a></div>
+
+## :link: References
+
+- [Microsoft Learn: Data transformation expressions in mapping data flows](https://learn.microsoft.com/en-us/azure/data-factory/data-transformation-functions)
+- [Microsoft Learn: Mapping data flow transformation overview](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-transformation-overview) 
+- [Microsoft Learn: Mapping data flow video tutorials](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-tutorials)
+- [Microsoft Learn: Schema drift in mapping data flow](https://learn.microsoft.com/en-us/azure/data-factory/concepts-data-flow-schema-drift)
 
 <div align="right"><a href="#module-08---medallion-architecture-silver-layer">↥ back to top</a></div>
 

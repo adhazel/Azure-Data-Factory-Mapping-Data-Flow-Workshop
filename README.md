@@ -46,7 +46,8 @@ Mapping data flows provide an entirely visual experience with no coding required
 <div align="right"><a href="#azure-data-factory-mapping-data-flow-workshop">↥ back to top</a></div>
 
 ## :books: Medallion Architecture
-In an medallion architecture, data is organized into layers: 
+In a [medallion architecture](https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion), data is organized into layers: 
+
 - **Bronze Layer**: Holds raw data.
 - **Silver Layer**: Contains cleansed data.
 - **Gold Layer**: Stores aggregated data that's useful for business analytics.
