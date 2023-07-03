@@ -15,7 +15,7 @@ For more information about linked services, see [Linked services in Azure Data F
 | --- | --- |
 | 1 | [Create ADLS Linked Service with Managed VNet IR](#1-create-adls-linked-service-with-managed-vnet-ir) |
 | 2 | [Create ADLS Linked Service with default Azure IR](#2-create-adls-linked-service-with-default-azure-ir) |
-| 3 | [Create Azure SQL DB Linked Service](#3-create-azuresqldb-linked-service) |
+| 3 | [Create Azure SQL DB Linked Service](#3-create-azure-sql-db-linked-service) |
 
 <div align="right"><a href="#module-02---create-linked-services">↥ back to top</a></div>
 
@@ -98,7 +98,8 @@ This linked service should be used to connect to the Azure Data Lake Storage Acc
 
 <kbd> <img src="../images/module02/create_ls_azuresqldb_6.png" alt="Test Connection successful" /> </kbd>
 
-[Continue >](../modules/module03.md)
+
+<div align="right"><a href="#module-02---create-linked-services">↥ back to top</a></div>
 
 ## 3. Create Azure SQL DB Linked Service
 
@@ -151,3 +152,6 @@ ALTER ROLE [db_owner] ADD MEMBER [name_of_the_adf];
 7. Publish the change to make it effective. Click **Publish all** to proceed. When the Publish all pane appears, click the **Publish** button at the bottom.
 
 <kbd> <img src="../images/module02/create_ls_azuresqldb_7.png" alt="Publish all" /> </kbd>
+
+
+[Continue >](../modules/module03.md)
