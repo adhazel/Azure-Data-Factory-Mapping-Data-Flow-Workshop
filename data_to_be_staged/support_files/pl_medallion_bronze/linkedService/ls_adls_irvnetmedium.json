@@ -1,0 +1,16 @@
+{
+    "name": "ls_adls_irvnetmedium",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "description": "A linked service connecting to the Azure Data Lake Storage Account via the virtual network using a medium cluster size",
+        "annotations": [],
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://dfmdf5ad758adls.dfs.core.windows.net/"
+        },
+        "connectVia": {
+            "referenceName": "ir-vnetwork-medium-60min",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}

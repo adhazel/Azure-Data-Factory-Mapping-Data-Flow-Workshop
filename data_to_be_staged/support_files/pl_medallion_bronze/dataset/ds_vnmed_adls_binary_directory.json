@@ -1,0 +1,32 @@
+{
+    "name": "ds_vnmed_adls_binary_directory",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "ls_adls_irvnetmedium",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "container": {
+                "type": "string"
+            },
+            "directory": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "folderPath": {
+                    "value": "@dataset().directory",
+                    "type": "Expression"
+                },
+                "fileSystem": {
+                    "value": "@dataset().container",
+                    "type": "Expression"
+                }
+            }
+        }
+    }
+}
