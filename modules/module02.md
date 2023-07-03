@@ -94,12 +94,6 @@ This linked service should be used to connect to the Azure Data Lake Storage Acc
 
 <div align="right"><a href="#module-02---create-linked-services">↥ back to top</a></div>
 
-## :tada: Summary
-
-<kbd> <img src="../images/module02/create_ls_azuresqldb_6.png" alt="Test Connection successful" /> </kbd>
-
-
-<div align="right"><a href="#module-02---create-linked-services">↥ back to top</a></div>
 
 ## 3. Create Azure SQL DB Linked Service
 
@@ -153,5 +147,7 @@ ALTER ROLE [db_owner] ADD MEMBER [name_of_the_adf];
 
 <kbd> <img src="../images/module02/create_ls_azuresqldb_7.png" alt="Publish all" /> </kbd>
 
+
+## :tada: Summary
 
 [Continue >](../modules/module03.md)
