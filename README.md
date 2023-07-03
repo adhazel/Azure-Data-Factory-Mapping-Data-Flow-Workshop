@@ -41,7 +41,7 @@ Mapping data flows provide an entirely visual experience with no coding required
 ## :books: Optional Learning Modules
 
 13. [SAP Change Data Capture](./modules/module13.md)
-14. Snowflake (module planned)
+14. [Working with pipeline templates](./modules/module14.md)
 
 <div align="right"><a href="#azure-data-factory-mapping-data-flow-workshop">↥ back to top</a></div>
 

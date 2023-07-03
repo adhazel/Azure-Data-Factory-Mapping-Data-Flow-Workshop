@@ -1,6 +1,6 @@
 # Module 13 - SAP CDC Connector
 
-[< Previous Module](../modules/module11.md) - **[Home](../README.md)**
+[< Previous Module](../modules/module11.md) - **[Home](../README.md)** - [Next Module >](../modules/module14.md)
 
 ## Setup of ADF SAP-CDC Connector
 
