@@ -1,0 +1,141 @@
+{
+    "name": "pl_medallion_bronze",
+    "properties": {
+        "description": "Ingest and apply retention policy",
+        "activities": [
+            {
+                "name": "Copy to incoming",
+                "description": "Copy any excel file found in the source directory to a dated incoming directory.",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.00:30:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "BinarySource",
+                        "storeSettings": {
+                            "type": "AzureBlobFSReadSettings",
+                            "recursive": false,
+                            "modifiedDatetimeStart": {
+                                "value": "@addDays(convertFromUtc(utcNow(),'Central Standard Time'),-3)",
+                                "type": "Expression"
+                            },
+                            "modifiedDatetimeEnd": {
+                                "value": "@utcnow()",
+                                "type": "Expression"
+                            },
+                            "wildcardFolderPath": "employees",
+                            "wildcardFileName": "*.xlsx",
+                            "deleteFilesAfterCompletion": false
+                        },
+                        "formatSettings": {
+                            "type": "BinaryReadSettings"
+                        }
+                    },
+                    "sink": {
+                        "type": "BinarySink",
+                        "storeSettings": {
+                            "type": "AzureBlobFSWriteSettings"
+                        }
+                    },
+                    "enableStaging": false
+                },
+                "inputs": [
+                    {
+                        "referenceName": "ds_vnmed_adls_binary",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "container": "source",
+                            "directory": "employees",
+                            "filename": "*.xlsx"
+                        }
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "ds_vnmed_adls_binary_directory",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "container": "inbound",
+                            "directory": {
+                                "value": "@concat('employees_bronze/',\nformatDateTime(convertFromUtc(utcNow(),'Central Standard Time')\n,'yyyy'),'/',\nformatDateTime(convertFromUtc(utcNow(),'Central Standard Time')\n,'yyyyMMddHHmm'))",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Inbound Data Retention Policy",
+                "description": "Delete incoming folders older than 1 year.",
+                "type": "Delete",
+                "dependsOn": [
+                    {
+                        "activity": "Copy to incoming",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.00:30:00",
+                    "retry": 1,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "dataset": {
+                        "referenceName": "ds_vnmed_adls_binary_directory",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "container": "inbound",
+                            "directory": {
+                                "value": "@concat('employees_bronze/',formatDateTime(getPastTime(1,'Year'),'yyyy')\n)",
+                                "type": "Expression"
+                            }
+                        }
+                    },
+                    "enableLogging": false,
+                    "storeSettings": {
+                        "type": "AzureBlobFSReadSettings",
+                        "recursive": true,
+                        "enablePartitionDiscovery": false
+                    }
+                }
+            },
+            {
+                "name": "Fail",
+                "description": "Set and throw first error code and message",
+                "type": "Fail",
+                "dependsOn": [
+                    {
+                        "activity": "Copy to incoming",
+                        "dependencyConditions": [
+                            "Failed"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "message": {
+                        "value": "@activity('Copy to incoming').output.errors[0].Message",
+                        "type": "Expression"
+                    },
+                    "errorCode": {
+                        "value": "@activity('Copy to incoming').output.errors[0].Code",
+                        "type": "Expression"
+                    }
+                }
+            }
+        ],
+        "annotations": []
+    }
+}
