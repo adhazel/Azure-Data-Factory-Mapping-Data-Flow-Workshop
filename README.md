@@ -76,6 +76,17 @@ In this lab, the following concepts by layer are present:
 
 <div align="right"><a href="#azure-data-factory-mapping-data-flow-workshop">↥ back to top</a></div>
 
+## :link: References
+
+- [Microsoft Learn: Mapping data flows in Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)
+- [Microsoft Learn: Mapping data flows performance and tuning guide](https://learn.microsoft.com/en-us/azure/data-factory/concepts-data-flow-performance)
+- [Microsoft Learn: Mapping data flow transformation overview](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-transformation-overview) 
+- [Microsoft Learn: Data transformation expressions in mapping data flows](https://learn.microsoft.com/en-us/azure/data-factory/data-transformation-functions)
+- [Microsoft Learn: Mapping data flow video tutorials](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-tutorials)
+- [Microsoft Learn: Integration Runtime Custom shuffle partition](https://learn.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime-performance#custom-shuffle-partition)
+
+<div align="right"><a href="#azure-data-factory-mapping-data-flow-workshop">↥ back to top</a></div>
+
 ## :link: Workshop URL
 
 [https://github.com/adhazel/Azure-Data-Factory-Mapping-Data-Flow-Workshop](https://github.com/adhazel/Azure-Data-Factory-Mapping-Data-Flow-Workshop)
