@@ -95,15 +95,12 @@ The below instructions require resource group owner role and will take approxima
     | Principal Id | The AAD user Object Id, as shown in the [Prerequisites](#thinking-prerequisites) |
     | Customer User Designation | A six character or less designation that is used to differentiate one Data Factory from another. It is recommended to use the project participants initials. |
     | Dfmdf_data_adls_name | The name of the Storage Account within the lab environment for data files (starts with dfmdf and ends with adls). |
-    |  |  |
 
     ![Deploy Factory Template](../images/module00/deploy_factory.png)
 
 1. Once the validation has passed, click **Create**.
 
-1. The deployment may take up to 10 minutes to complete. Once you see the message **Your deployment is complete**, click **Go to resource group**.
-
-1. If successful, you should see the resource group resources, similar to the screenshot below.
+1. The deployment may take up to 10 minutes to complete. Once you see the message **Your deployment is complete**, click **Go to resource group**. 
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
