@@ -16,18 +16,24 @@ In order to follow along with the lab exercises, you need to provision a set of 
 
 ## :thinking: Prerequisites
 
-* An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
-* The subscription must have the following resource providers registered.
-  * Microsoft.Authorization
-  * Microsoft.DataFactory
-  * Microsoft.EventHub
-  * Microsoft.KeyVault
-  * Microsoft.Storage
-  * Microsoft.Sql
-  * Microsoft.Synapse
-  * Microsoft.Insights
-    > **Warning**  If you are using an **Azure Pass promo code**, the following resource providers - `Microsoft.Storage`, `Microsoft.EventHub`, and `Microsoft.Synapse` are not registered by default. Follow the instructions on [how to register a resource provider](./providers.md) before proceeding with the lab environment deployment below.
+1. An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
+    > The subscription must have the following resource providers registered.
+    > * Microsoft.Authorization
+    > * Microsoft.DataFactory
+    > * Microsoft.EventHub
+    > * Microsoft.KeyVault
+    > * Microsoft.Storage
+    > * Microsoft.Sql
+    > * Microsoft.Synapse
+    > * Microsoft.Insights
+    > * **Warning**  If you are using an **Azure Pass promo code**, the following resource providers - `Microsoft.Storage`, `Microsoft.EventHub`, and `Microsoft.Synapse` are not registered by default. Follow the instructions on [how to register a resource provider](./providers.md) before proceeding with the lab environment deployment below.
 
+1. A resource group for the lab environment, which is recommended to be in a non-production subscription.
+
+1. A Data Factory will be created for each project particpant. To enable user-specific security assigments, capture the **Azure Active Directory** user **Object ID** for all training participants.
+
+    ![Active Directory Users](../images/module00/aad_users.png)
+    ![Active Directory Princpal ID](../images/module00/aad_principal.png)
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
@@ -78,6 +84,26 @@ The below instructions require resource group owner role and will take approxima
     - Azure Data Factory
     - Role assignment granting the participant resource group contributor access and Storage Blob Data Contributor access
     - Role assignment granting the Azure Data Factory resource group contributor and Storage Blob Data Contributor access
+
+1. Complete the below parameters and click **Review + create**.
+
+    | Parameter  | Description |
+    | --- | --- |
+    | Subscription | The subscription name where the lab environment should be created. |
+    | Resource Group | The resource group name where the lab environment should be created. |
+    | Region | The region used for the lab environment resources. |
+    | Principal Id | The AAD user Object Id, as shown in the [Prerequisites](#thinking-prerequisites) |
+    | Customer User Designation | A six character or less designation that is used to differentiate one Data Factory from another. It is recommended to use the project participants initials. |
+    | Dfmdf_data_adls_name | The name of the Storage Account within the lab environment for data files (starts with dfmdf and ends with adls). |
+    |  |  |
+
+    ![Deploy Factory Template](../images/module00/deploy_factory.png)
+
+1. Once the validation has passed, click **Create**.
+
+1. The deployment may take up to 10 minutes to complete. Once you see the message **Your deployment is complete**, click **Go to resource group**.
+
+1. If successful, you should see the resource group resources, similar to the screenshot below.
 
 <div align="right"><a href="#module-00---lab-environment-setup">↥ back to top</a></div>
 
