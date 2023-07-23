@@ -66,8 +66,8 @@ In this module, we will cover common mapping data flow issues and their respecti
 
     ![all intended activites ran successfully or errors were caught](../images/module11/debugwithallcaughterrors.png)
 
-| :exclamation:  behavior is by design. All activities on the success path either ran successfully or had their errors handled by the on failure conditional path.   |
-|-----------------------------------------|
+    > | :exclamation: This behavior is by design. All activities on the success path either ran successfully or had their errors handled by the on failure conditional path.   |
+    > |-----------------------------------------|
 
 
 
