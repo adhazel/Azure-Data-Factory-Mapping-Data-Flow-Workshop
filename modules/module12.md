@@ -29,10 +29,13 @@ In addition to that published content, here are a few best practices to consider
     - Create and socialize Azure Data Factory Template Gallery templates
     - Practice code review.
     - Implement continous integration and deployment (CI/CD) with at least 1 non-production environment.
-1. Build it to be robust: Set appropriate Timeout and Retry values in activities.
-1. Leverage schema drift where possible so source changes don't break downstream consumption.
 1. Integrate Data Factory with data governance tooling for optimzied trust in the data.
-
-
+1. Build it to be robust: Set appropriate Timeout and Retry values in activities.
+1. In the source to target continum, delay defining a fixed schema as far downstream as possible - leverage schema drift to prevent unnecessarily development efforts on stage and/or processing layers. Consider fixed schema to be applied just prior to self-service layers.
+1. Build for complex security and consumption requirements:
+    - Use row level security where appropriate, so you are not building different outputs per security group
+    - Have different outputs per data classification (i.e., generally accessible datasets will not include PII-protected attributes)
+1. Allow variations for differing consumption needs without overly complicating the lineage.
+    <kbd> <img src="../images/module10/consumption_pattern.png" alt="debug on" /> </kbd>
 
 [Continue >](../modules/module13.md)
