@@ -66,9 +66,8 @@ In this module, we will cover common mapping data flow issues and their respecti
 
     ![all intended activites ran successfully or errors were caught](../images/module11/debugwithallcaughterrors.png)
 
-    > :exclaimation: This behavior is by design. All activities on the success path either ran successfully or had their errors handled by the on failure conditional path.
-
-    <div style="background-color: rgb(255, 199, 206); border-radius: 2px; padding: 0.05rem 0.2rem;">This behavior is by design. All activities on the success path either ran successfully or had their errors handled by the on failure conditional path.</div>
+    > **Note**
+    > This behavior is by design. All activities on the success path either ran successfully or had their errors handled by the on failure conditional path.
 
 1. Right-click over the `Upon Success` activity and select **Copy**.
 
