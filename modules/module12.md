@@ -1,6 +1,6 @@
-# Module ## - Module Title
+# Module 12 - Best Practices
 
-[< Previous Module](../modules/module##.md) - **[Home](../README.md)** - [Next Module >](../modules/module##.md)
+[< Previous Module](../modules/module11.md) - **[Home](../README.md)** - [Next Module >](../modules/module13.md)
 
 ## :loudspeaker: Introduction
 
