@@ -170,6 +170,8 @@ After this section, you will have learned the basics for conditional paths and h
 
 1. Click the **Publish all** button, then click the **Publish** button.
 
+<div align="right"><a href="#module-11---troubleshooting">↥ back to top</a></div>
+
 ## 2. Capture activity error messages
 
 In addition to being able to create conditional paths, some activites return a queryable error message in the JSON that returns from the activity execution. In this section, you will learn how to capture the error code and message returned from a failed **Copy data** actvity. 
