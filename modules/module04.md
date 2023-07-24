@@ -47,7 +47,7 @@ Fuzzy join
     You can choose to join based on fuzzy join logic instead of exact column value matching by turning on the "Use fuzzy matching" checkbox option.
 
 
-
+<div align="right"><a href="## Module-04---Joins">↥ back to top</a></div>
 
 ## 2. Prepare the dataset
 
@@ -86,6 +86,9 @@ create table dbo.ProductByCategory
 After that we can create a new SQL dataset as done previously, this time for the table dbo.ProductByCategory
 
 ![Label](../images/module04/11b_NewDatasetProductsByCategory.png)
+
+
+<div align="right"><a href="## Module-04---Joins">↥ back to top</a></div>
 
 ## 3. Join creation with MDF
 
@@ -178,6 +181,8 @@ You should see only two columns: ProductID and CategoryName.
 
 ![Label](../images/module04/20_SelectPreview.png)
 
+
+<div align="right"><a href="## Module-04---Joins">↥ back to top</a></div>
 
 ## 4. Aggregation with MDF
 
