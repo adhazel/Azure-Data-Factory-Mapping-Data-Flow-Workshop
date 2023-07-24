@@ -155,15 +155,6 @@ The pipelines in this module use a 5 MB file named *NYCTripSmall.parquet*. This 
 
    <kbd> <img src="../images/module00/create_publish_directories.png" alt="Create publish directories" /> </kbd>
 
-### Stage Module 4 [Join Placeholder](./modules/module04.md) Sample Data 
-
-Instructions here
-
-
-### Stage Module 5 [Slowly Changing Dimensions](./modules/module05.md) Sample Data 
-
-Instructions here
-
 ### Stage Module 7 [Medallion Architecture: Bronze Layer](./modules/module07.md) Sample Data
 
 The pipelines in this module use 2 Excel files under 50 KB file named *Employees.xlsx* and *Regions.xlsx*. This files needs to be in the Azure Storage Account created for this lab.
