@@ -22,29 +22,31 @@ Relational databases usually contain multiple tables that are linked by common k
 
 Mapping data flows currently supports five different join types.
 
+![Label](../images/module04/31_JoinTypes.png)
+
 Inner Join
 
-	Inner join only outputs rows that have matching values in both tables.
+Inner join only outputs rows that have matching values in both tables.
 
 Left Outer
 
-	Left outer join returns all rows from the left stream and matched records from the right stream. If a row from the left stream has no match, the output columns from the right stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the left stream.
+Left outer join returns all rows from the left stream and matched records from the right stream. If a row from the left stream has no match, the output columns from the right stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the left stream.
 
 Right Outer
 
-	Right outer join returns all rows from the right stream and matched records from the left stream. If a row from the right stream has no match, the output columns from the left stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the right stream.
+Right outer join returns all rows from the right stream and matched records from the left stream. If a row from the right stream has no match, the output columns from the left stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the right stream.
 
 Full Outer
 
-	Full outer join outputs all columns and rows from both sides with NULL values for columns that aren't matched.
+Full outer join outputs all columns and rows from both sides with NULL values for columns that aren't matched.
 
 Custom cross join
 
-	Cross join outputs the cross product of the two streams based upon a condition. If you're using a condition that isn't equality, specify a custom expression as your cross join condition. The output stream will be all rows that meet the join condition.
+Cross join outputs the cross product of the two streams based upon a condition. If you're using a condition that isn't equality, specify a custom expression as your cross join condition. The output stream will be all rows that meet the join condition.
 
 Fuzzy join
 
-    You can choose to join based on fuzzy join logic instead of exact column value matching by turning on the "Use fuzzy matching" checkbox option.
+You can choose to join based on fuzzy join logic instead of exact column value matching by turning on the "Use fuzzy matching" checkbox option.
 
 
 <div align="right"><a href="## Module-04---Joins">↥ back to top</a></div>
