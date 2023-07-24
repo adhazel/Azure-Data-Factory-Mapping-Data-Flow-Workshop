@@ -3,7 +3,22 @@
 [< Previous Module](../modules/module03.md) - **[Home](../README.md)** - [Next Module >](../modules/module05.md)
 
 
-## Join Tables: Introduction
+## :bookmark_tabs: Table of Contents
+
+| #  | Section |
+| --- | --- |
+| 1 | [Introduction to the different types of joins](#1-Introduction-to-the-different-types-of-joins) |
+| 2 | [Prepare the dataset](#2-prepare-the-dataset) |
+| 3 | [Join creation with MDF](#3-Join-creation-with-MDF) |
+| 4 | [Aggregation with MDF](#4-Aggregation-with-MDF) |
+
+<div align="right"><a href="## Module-04---Joins">↥ back to top</a></div>
+
+## 1. Introduction to the different types of joins
+
+Relational databases usually contain multiple tables that are linked by common key fields. This normalized design minimizes duplication of data, but means that you'll often need to write queries to retrieve related data from two or more tables. The most fundamental and common method of combining data from multiple tables is to use a JOIN transformation. 
+
+### Join Tables: Introduction
 
 Mapping data flows currently supports five different join types.
 
@@ -32,23 +47,7 @@ Fuzzy join
     You can choose to join based on fuzzy join logic instead of exact column value matching by turning on the "Use fuzzy matching" checkbox option.
 
 
-
-
-## :bookmark_tabs: Table of Contents
-
-| #  | Section |
-| --- | --- |
-| 1 | [Introduction to the different types of joins](#1-Introduction-to-the-different-types-of-joins) |
-| 2 | [Prepare the dataset](#2-prepare-the-dataset) |
-| 3 | [Join creation with MDF](#3-Join-creation-with-MDF) |
-| 4 | [Aggregation with MDF](#4-Aggregation-with-MDF) |
-
 <div align="right"><a href="## Module-04---Joins">↥ back to top</a></div>
-
-## 1. Introduction to the different types of joins
-
-Different types of joins: 
-
 
 ## 2. Prepare the dataset
 
@@ -87,6 +86,9 @@ create table dbo.ProductByCategory
 After that we can create a new SQL dataset as done previously, this time for the table dbo.ProductByCategory
 
 ![Label](../images/module04/11b_NewDatasetProductsByCategory.png)
+
+
+<div align="right"><a href="## Module-04---Joins">↥ back to top</a></div>
 
 ## 3. Join creation with MDF
 
@@ -179,6 +181,8 @@ You should see only two columns: ProductID and CategoryName.
 
 ![Label](../images/module04/20_SelectPreview.png)
 
+
+<div align="right"><a href="## Module-04---Joins">↥ back to top</a></div>
 
 ## 4. Aggregation with MDF
 
