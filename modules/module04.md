@@ -125,7 +125,7 @@ For source type select dataset and for dataset select the newly created ds_sql_p
 
 ![Label](../images/module04/12_AddSource2_ProductCategory.png)
 
-Now ad the base right of the Source1 box click on the plus sign to add an activity and select Join
+Now at the bottom right of the Source1 box click on the plus sign to add an activity and select Join
 
 ![Label](../images/module04/13_AddJoin.png)
 
@@ -151,9 +151,6 @@ Save and finish
 
 ![Label](../images/module04/14e_ExpBuilder3.png)
 
-Provide the name TotalProducts for the column
-
-![Label](../images/module04/14f_ExpBuilder4.png)
 
 Now enable the Data flow debug
 This will provide the ability to preview the data while building the pipeline.
@@ -213,6 +210,11 @@ Click save
 
 ![Label](../images/module04/25_TotalProducts.png)
 
+Provide the name TotalProducts for the column
+
+![Label](../images/module04/14f_ExpBuilder4.png)
+
+
 We can now check the Data preview to verify the result of our operation.
 
 You should see the columns CategoryName and TotalProducts
@@ -228,10 +230,14 @@ Choose sink.
 
 In the Sink detail page ensure the Sink type is set to dataset.
 
-Then set the dataset to the previosly created ds_sql_ProductCategory and test connection.
+Then set the dataset to the previosly created ds_sql_ProductByCategory and test connection.
 
 
 ![Label](../images/module04/28_AddSinkDetails.png)
+
+If you click on "Data preview" again within the sink1 settings pane, you will see that the result are automatically mapped to the columns defined in the SQL table columns. 
+
+![Label](../images/module04/32_finalDataPreview.png)
 
 Now that we completed outr pipeline you can Publish all the changes.
 
@@ -251,7 +257,19 @@ Instead with New/Edit you can set a specific schedule.
 
 ![Label](../images/module04/30_Execute.png)
 
+In the Monitor tab of Azure Data Factory unter the **Triggered** section you will find the pipeline with the green **succeeded** status after a short time. 
 
+![Label](../images/module04/33_monitorPipelineTriggerRun.png)
+
+Moving to the SQL table you can also confirm that the table is now filled with the aggregated data joined with 2 tables as source. 
+
+![Label](../images/module04/34_checkDatabaseTable.png)
+
+## :tada: Summary
+
+Congratulations! You have make great progress and completed this module now! You have performed a **Join** transformation combining data from 2 different tables by a key column. This is a typical transformation in any SQL task and probably the most fundamental concept to learn. [Learn more](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-join)
+
+[Continue >](../modules/module05.md)
 
 
 
