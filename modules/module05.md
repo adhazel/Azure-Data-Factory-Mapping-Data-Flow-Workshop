@@ -12,6 +12,8 @@ Based on how to deal with a slowly dimensional data change in different scenario
 * Slowly Changing Dimensions Type 1 (overwrite without tracking history)
 * Slowly Changing Dimensions Type 2 (track history by adding new row)
 
+A step-by-step instruction can be found in this [video](https://www.youtube.com/watch?v=Aoum_CmQUBg).
+
 ## :bookmark_tabs: Table of Contents
 
 | #  | Section |
